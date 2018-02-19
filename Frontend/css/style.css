@@ -1,0 +1,147 @@
+/*Main style*/
+
+body {
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image: url("resources/bg.jpg");
+}
+
+#bg {
+ 
+}
+
+
+/*Glass effect for background*/
+
+
+/*NavBar*/
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #008080;
+    z-index: 9;
+    border: 0;
+    font-size: 1.5em !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    font-size: 1em;
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+
+
+/*Search*/
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+
+
+/*Smaller screen style*/
+
+@media only screen and (max-width: 900px) {
+    .restaurantList {
+        margin-top: 15%;
+    }
+}
+
+@font-face {
+    font-family: Iceland;
+    src: url(resources/iceland.regular.ttf);
+    font-size: 2em;
+}
+
+body {
+    font-family: Iceland;
+}
+
+h3 {
+    text-shadow: 0 0 5px, 0 0px 6px 3px blue, 0 -2px 6px 6px cyan, 0 -4px 9px 9px lightblue;
+    padding: 0;
+    margin: 0;
+}
+
+.rounded-left {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.rounded-right {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.rounded-0 {
+    border-radius: 0;
+}
+
+.well-title {
+    opacity: 0.9;
+    margin: auto;
+    padding: 0;
+}
+
+.well-container {
+    margin-top: 10%;
+}
+
+.well-title:hover {
+    opacity: 1;
+}
+
+.well {
+    margin: 0;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.modal-header .close {
+    color: #d43f3a;
+    opacity: 0.7;
+    font-size: 40px; //bigger
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    overflow-x: none;
+}
+
+.no-border {
+    border-bottom: 0px;
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: #C0C0C0;
+}
