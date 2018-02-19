@@ -8,9 +8,6 @@ body {
   background-image: url("resources/bg.jpg");
 }
 
-#bg {
- 
-}
 
 
 /*Glass effect for background*/
@@ -80,7 +77,6 @@ body {
 }
 
 h3 {
-    text-shadow: 0 0 5px, 0 0px 6px 3px blue, 0 -2px 6px 6px cyan, 0 -4px 9px 9px lightblue;
     padding: 0;
     margin: 0;
 }
@@ -100,21 +96,41 @@ h3 {
 }
 
 .well-title {
-    opacity: 0.9;
     margin: auto;
     padding: 0;
+}
+.well:hover{
+    opacity: 1;
+    color: #f4511e !important;
+    background-color: #fff !important;
 }
 
 .well-container {
     margin-top: 10%;
 }
-
-.well-title:hover {
+.well-container .well-title:hover .well{
     opacity: 1;
+    color: #343a40 !important;
+    background-color: #fff !important;
+}
+.well-container .well-title:hover .well-success{
+    opacity: 1;
+    color: #28a745 !important;
+    background-color: #fff !important;
+}
+.well-container .well-title:hover .well-danger{
+    opacity: 1;
+    color: #bd2130 !important;
+    background-color: #fff !important;
 }
 
 .well {
-    margin: 0;
+  opacity: 0.95;
+  color: #fff !important;
+  border-color:#00FFFF;
+  border-width: 1px;
+  background-color:#008080;
+  margin: 0;
 }
 
 a:hover {
@@ -124,7 +140,7 @@ a:hover {
 .modal-header .close {
     color: #d43f3a;
     opacity: 0.7;
-    font-size: 40px; //bigger
+    font-size: 40px;
 }
 
 .close:hover {
