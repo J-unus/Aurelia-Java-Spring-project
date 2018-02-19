@@ -109,16 +109,28 @@ h3 {
     margin-top: 10%;
 }
 .well-container .well-title:hover .well{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #343a40 !important;
     background-color: #fff !important;
 }
 .well-container .well-title:hover .well-success{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #28a745 !important;
     background-color: #fff !important;
 }
 .well-container .well-title:hover .well-danger{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #bd2130 !important;
     background-color: #fff !important;
@@ -166,6 +178,10 @@ a:hover {
 }
 
 .item:hover{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     cursor: pointer;
     color:#343a40 !important;
 }
