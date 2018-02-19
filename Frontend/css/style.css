@@ -138,16 +138,24 @@ a:hover {
 }
 
 .modal-header .close {
-    color: #d43f3a;
-    opacity: 0.7;
+    color: white;
     font-size: 40px;
+    text-shadow: none;
 }
 
-.close:hover {
-    opacity: 1;
+.modal-header .close:hover {
+  color:  #FF0000;
+}
+
+.modal-header, .modal-footer {
+  border-color:#00FFFF;
+  border-width: 1px;
+  background-color:#008080;
+  color:#fff;
 }
 
 .modal-body {
+    background-color:#008F80;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
     overflow-x: none;
@@ -157,7 +165,29 @@ a:hover {
     border-bottom: 0px;
 }
 
-.item:hover {
+.item:hover{
     cursor: pointer;
-    background-color: #C0C0C0;
+    color:#343a40 !important;
+}
+.item .text-success{
+    cursor: pointer;
+    background-color: #fff !important;
+    color: #28a745 !important;
+}
+.item .text-danger{
+    cursor: pointer;
+    background-color: #fff !important;
+    color: #bd2130 !important;
+}
+
+
+.nav-tabs > li > a{
+  background-color: #008080 !important;
+    border-color: #00FFFF !important;
+    color:#fff !important;
+}
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active a{
+  color: #343a40 !important;
+  background-color: #fff !important;
 }
