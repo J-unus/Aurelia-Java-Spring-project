@@ -14,24 +14,126 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Koffy</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="">Koffy</a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated flipInX register-background" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h3><b>Register</b></h3></div>
+                                    <form id="ajax-register-form" action="" method="post" role="form" autocomplete="off">
+                                        <div class="form-group">
+                                            <label for="name" class="cols-sm-2 control-label">Name</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-text-background" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email" class="cols-sm-2 control-label">Email</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated slideInRight login-background" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h3><b>Log In</b></h3></div>
+                                    <form id="ajax-login-form" action="" method="post" role="form" autocomplete="off">
+                                       <div class="form-group">
+                                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                      <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                                        </div>
+                                        <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                                    </form>
+                                </div>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
 
         <div class="container well-container">
             <a data-toggle="modal" data-target="#myModal1">
@@ -107,7 +209,6 @@
                 </div>
             </a>
         </div>
-
         <!-- Modal -->
         <div id="myModal1" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -596,7 +697,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                            </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -605,7 +707,6 @@
                 </div>
             </div>
         </div>
-
     </body>
 
 </html>
