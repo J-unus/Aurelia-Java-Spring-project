@@ -1,16 +1,35 @@
 /*Main style*/
 
 body {
-   background-repeat: no-repeat;
+  padding-top: 90px;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
   background-image: url("resources/bg.jpg");
 }
 
+/* General sizing */
+ul.dropdown-lr {
+  width: 300px;
+}
 
-
-/*Glass effect for background*/
+/* mobile fix */
+@media (max-width: 768px) {
+  .dropdown-lr h3 {
+    color: #eee;
+  }
+  .dropdown-lr label {
+    color: #eee;
+  }
+}
+label{
+  letter-spacing: 0px;
+}
+.login-background,.register-background{
+  color:#fff;
+  background-color: #009edf !important;
+}
 
 
 /*NavBar*/
@@ -22,7 +41,7 @@ body {
     border: 0;
     font-size: 1.5em !important;
     line-height: 1.42857143 !important;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     border-radius: 0;
 }
 
@@ -60,11 +79,6 @@ h4 {
 
 /*Smaller screen style*/
 
-@media only screen and (max-width: 900px) {
-    .restaurantList {
-        margin-top: 15%;
-    }
-}
 
 @font-face {
     font-family: Iceland;
@@ -104,21 +118,29 @@ h3 {
     color: #f4511e !important;
     background-color: #fff !important;
 }
-
-.well-container {
-    margin-top: 10%;
-}
 .well-container .well-title:hover .well{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #343a40 !important;
     background-color: #fff !important;
 }
 .well-container .well-title:hover .well-success{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #28a745 !important;
     background-color: #fff !important;
 }
 .well-container .well-title:hover .well-danger{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     opacity: 1;
     color: #bd2130 !important;
     background-color: #fff !important;
@@ -166,6 +188,10 @@ a:hover {
 }
 
 .item:hover{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
     cursor: pointer;
     color:#343a40 !important;
 }
