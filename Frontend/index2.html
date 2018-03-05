@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Koffy</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Style for page -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="">Koffy</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated flipInX register-background" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h3><b>Register</b></h3></div>
+                                    <form id="ajax-register-form" action="" method="post" role="form" autocomplete="off">
+                                        <div class="form-group">
+                                            <label for="name" class="cols-sm-2 control-label">Name</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-text-background" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email" class="cols-sm-2 control-label">Email</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated slideInRight login-background" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h3><b>Log In</b></h3></div>
+                                    <form id="ajax-login-form" action="" method="post" role="form" autocomplete="off">
+                                       <div class="form-group">
+                                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                      <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                                        </div>
+                                        <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                                    </form>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container well-container">
+            <a data-toggle="modal" data-target="#myModal1">
+                <div class="row col-sm-12 text-center well-title">
+                    <div class="col-sm-4 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-cutlery"></span>
+                        <h3><strong>Mimosa</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <h3><strong>09.00-21.00</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                        <h3><strong>+372 54675277</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-success rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <h3><strong>100</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-danger rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                        <h3><strong>20</strong></h3>
+                    </div>
+                </div>
+            </a>
+            <a data-toggle="modal" data-target="#myModal2">
+                <div class="row col-sm-12 text-center well-title">
+                    <div class="col-sm-4 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-cutlery"></span>
+                        <h3><strong>Self Baar</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <h3><strong>08.00-20.00</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                        <h3><strong>+372 58748392</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-success rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <h3><strong>73</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-danger rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                        <h3><strong>12</strong></h3>
+                    </div>
+                </div>
+            </a>
+            <a data-toggle="modal" data-target="#myModal3">
+                <div class="row col-sm-12 text-center well-title">
+                    <div class="col-sm-4 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-cutlery"></span>
+                        <h3><strong>Salvador Steakhouse</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <h3><strong>10.00-22.00</strong></h3>
+                    </div>
+                    <div class="col-sm-3 well well-sm rounded-0">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                        <h3><strong>+372 58394029</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-success rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <h3><strong>12</strong></h3>
+                    </div>
+                    <div class="col-sm-1 well well-sm well-danger rounded-0">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                        <h3><strong>1</strong></h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Modal -->
+        <div id="myModal1" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title text-center">Mimosa Menüü</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container col-sm-12">
+                            <ul class="nav nav-tabs no-border">
+                                <li class="active"><a data-toggle="tab" href="#menu1"><strong>Appetizers</strong></a></li>
+                                <li><a data-toggle="tab" href="#menu2"><strong>Salads</strong></a></li>
+                                <li><a data-toggle="tab" href="#menu3"><strong>Soups</strong></a></li>
+                                <li><a data-toggle="tab" href="#menu4"><strong>Main Courses</strong></a></li>
+                                <li><a data-toggle="tab" href="#menu5"><strong>Desserts</strong></a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="menu1" class="tab-pane fade in active">
+                                    <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+                                        <div class="row">
+                                            <div class="col-sm-12 well well-sm text-center text-info item">
+                                                <div class="col-sm-6 text-center">
+                                                    Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                    7.80
+                                                    <span class="glyphicon glyphicon-euro"></span>
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-success rounded-0">
+                                                    <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="exampleMenuCollapse" class="collapse">
+                                        <div class="row">
+                                            <div class="media">
+                                                <div class="media">
+                                                    <img src="css/resources/toit.jpg" class="media-object">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="well well-sm">
+                                                        <h3 class="text-center">Comments</h3>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">John</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">Mary</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger rounded-0">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu2" class="tab-pane fade in">
+                                    <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+                                        <div class="row">
+                                            <div class="col-sm-12 well well-sm text-center text-info item">
+                                                <div class="col-sm-6 text-center">
+                                                    Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    7.80
+                                                    <span class="glyphicon glyphicon-euro"></span>
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-success">
+                                                    <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="exampleMenuCollapse" class="collapse">
+                                        <div class="row">
+                                            <div class="media">
+                                                <div class="media">
+                                                    <img src="css/resources/toit.jpg" class="media-object">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="well well-sm">
+                                                        <h3 class="text-center">Comments</h3>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">John</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">Mary</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu3" class="tab-pane fade in">
+                                    <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+                                        <div class="row">
+                                            <div class="col-sm-12 well well-sm text-center text-info item">
+                                                <div class="col-sm-6 text-center">
+                                                    Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    7.80
+                                                    <span class="glyphicon glyphicon-euro"></span>
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-success">
+                                                    <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="exampleMenuCollapse" class="collapse">
+                                        <div class="row">
+                                            <div class="media">
+                                                <div class="media">
+                                                    <img src="css/resources/toit.jpg" class="media-object">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="well well-sm">
+                                                        <h3 class="text-center">Comments</h3>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">John</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">Mary</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu4" class="tab-pane fade in">
+                                    <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+                                        <div class="row">
+                                            <div class="col-sm-12 well well-sm text-center text-info item">
+                                                <div class="col-sm-6 text-center">
+                                                    Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    7.80
+                                                    <span class="glyphicon glyphicon-euro"></span>
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-success">
+                                                    <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="exampleMenuCollapse" class="collapse">
+                                        <div class="row">
+                                            <div class="media">
+                                                <div class="media">
+                                                    <img src="css/resources/toit.jpg" class="media-object">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="well well-sm">
+                                                        <h3 class="text-center">Comments</h3>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">John</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">Mary</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu5" class="tab-pane fade in">
+                                    <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+                                        <div class="row">
+                                            <div class="col-sm-12 well well-sm text-center text-info item">
+                                                <div class="col-sm-6 text-center">
+                                                    Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    7.80
+                                                    <span class="glyphicon glyphicon-euro"></span>
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-success">
+                                                    <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                                </div>
+                                                <div class="col-sm-2 well well-sm text-center text-danger">
+                                                    <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="exampleMenuCollapse" class="collapse">
+                                        <div class="row">
+                                            <div class="media">
+                                                <div class="media">
+                                                    <img src="css/resources/toit.jpg" class="media-object">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="well well-sm">
+                                                        <h3 class="text-center">Comments</h3>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">John</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                        <div class="well well-sm">
+                                                            <h4 class="media-heading">Mary</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 well well-sm text-center text-info item">
+                                            <div class="col-sm-6 text-center">
+                                                Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                7.80
+                                                <span class="glyphicon glyphicon-euro"></span>
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-success">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> 21
+                                            </div>
+                                            <div class="col-sm-2 well well-sm text-center text-danger">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

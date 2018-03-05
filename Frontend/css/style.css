@@ -1,0 +1,219 @@
+/*Main style*/
+
+body {
+  padding-top: 90px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image: url("resources/bg.jpg");
+}
+
+/* General sizing */
+ul.dropdown-lr {
+  width: 300px;
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+  .dropdown-lr h3 {
+    color: #eee;
+  }
+  .dropdown-lr label {
+    color: #eee;
+  }
+}
+label{
+  letter-spacing: 0px;
+}
+.login-background,.register-background{
+  color:#fff;
+  background-color: #009edf !important;
+}
+
+
+/*NavBar*/
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #008080;
+    z-index: 9;
+    border: 0;
+    font-size: 1.5em !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 3px;
+    border-radius: 0;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    font-size: 1em;
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+
+
+/*Search*/
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+
+
+/*Smaller screen style*/
+
+
+@font-face {
+    font-family: Iceland;
+    src: url(resources/iceland.regular.ttf);
+    font-size: 2em;
+}
+
+body {
+    font-family: Iceland;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.rounded-left {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.rounded-right {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.rounded-0 {
+    border-radius: 0;
+}
+
+.well-title {
+    margin: auto;
+    padding: 0;
+}
+.well:hover{
+    opacity: 1;
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+.well-container .well-title:hover .well{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
+    opacity: 1;
+    color: #343a40 !important;
+    background-color: #fff !important;
+}
+.well-container .well-title:hover .well-success{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
+    opacity: 1;
+    color: #28a745 !important;
+    background-color: #fff !important;
+}
+.well-container .well-title:hover .well-danger{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
+    opacity: 1;
+    color: #bd2130 !important;
+    background-color: #fff !important;
+}
+
+.well {
+  opacity: 0.95;
+  color: #fff !important;
+  border-color:#00FFFF;
+  border-width: 1px;
+  background-color:#008080;
+  margin: 0;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.modal-header .close {
+    color: white;
+    font-size: 40px;
+    text-shadow: none;
+}
+
+.modal-header .close:hover {
+  color:  #FF0000;
+}
+
+.modal-header, .modal-footer {
+  border-color:#00FFFF;
+  border-width: 1px;
+  background-color:#008080;
+  color:#fff;
+}
+
+.modal-body {
+    background-color:#008F80;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    overflow-x: none;
+}
+
+.no-border {
+    border-bottom: 0px;
+}
+
+.item:hover{
+  -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
+    cursor: pointer;
+    color:#343a40 !important;
+}
+.item .text-success{
+    cursor: pointer;
+    background-color: #fff !important;
+    color: #28a745 !important;
+}
+.item .text-danger{
+    cursor: pointer;
+    background-color: #fff !important;
+    color: #bd2130 !important;
+}
+
+
+.nav-tabs > li > a{
+  background-color: #008080 !important;
+    border-color: #00FFFF !important;
+    color:#fff !important;
+}
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active a{
+  color: #343a40 !important;
+  background-color: #fff !important;
+}
