@@ -1,4 +1,4 @@
-package tarkvaratehnika.test123;
+package tarkvaratehnika.user;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +10,14 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Test123 {
+public class User {
     @Id
     @GeneratedValue
     long id;
-    String firstName;
-    String lastName;
-    int numOfPets;
+    String username;
+    String password;
+    String email;
+    String fullName;
+    boolean isRestaurant;
+    boolean isAdmin;
 }
