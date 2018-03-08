@@ -10,24 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import tarkvaratehnika.restaurants.Restaurants;
-
+/*
 @Entity
 @Getter
 @Setter
-
+*/
 public class Food {
-    @Id
+   /* @Id
     @GeneratedValue
     long id;
     String foodClass;
     String description;
     String image;
     double price;
-
-    int phoneNumber;
-    String location;
     @OneToOne()
     Restaurants restaurants;
-
+*/
 
 }

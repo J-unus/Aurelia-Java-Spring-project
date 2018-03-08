@@ -12,12 +12,12 @@ import javax.persistence.OneToOne;
 import tarkvaratehnika.food.Food;
 import tarkvaratehnika.user.User;
 
-@Entity
+/*@Entity
 @Getter
 @Setter
-
+*/
 public class Comments {
-    @Id
+  /*  @Id
     @GeneratedValue
     long id;
     String content;
@@ -25,6 +25,6 @@ public class Comments {
     User user;
     @OneToOne()
     Food food;
-
+*/
 
 }

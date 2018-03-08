@@ -14,10 +14,5 @@ public class User {
     @Id
     @GeneratedValue
     long id;
-    String username;
-    String password;
-    String email;
-    String fullName;
-    boolean isRestaurant;
-    boolean isAdmin;
+    String firstName;
 }

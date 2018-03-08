@@ -10,13 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import tarkvaratehnika.user.User;
 import tarkvaratehnika.restaurants.Restaurants;
-
+/*
 @Entity
 @Getter
 @Setter
-
+*/
 public class RestaurantLikes {
-    @Id
+    /*@Id
     @GeneratedValue
     long id;
     int rating;
@@ -24,6 +24,6 @@ public class RestaurantLikes {
     User user;
     @OneToOne()
     Restaurants restaurants;
-
+*/
 
 }

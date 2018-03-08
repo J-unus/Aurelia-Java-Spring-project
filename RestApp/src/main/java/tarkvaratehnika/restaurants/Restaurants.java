@@ -9,13 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import tarkvaratehnika.user.User;
-
+/*
 @Entity
 @Getter
 @Setter
-
+*/
 public class Restaurants {
-    @Id
+   /* @Id
     @GeneratedValue
     long id;
     String openTime;
@@ -23,6 +23,6 @@ public class Restaurants {
     String location;
     @OneToOne()
     User user;
-
+*/
 
 }
