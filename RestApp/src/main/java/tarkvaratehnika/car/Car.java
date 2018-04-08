@@ -1,29 +1,26 @@
-package tarkvaratehnika.foodLikes;
-
-
-import lombok.Getter;
-import lombok.Setter;
+package tarkvaratehnika.car;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import tarkvaratehnika.user.User;
-import tarkvaratehnika.food.Food;
-/*
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Getter
 @Setter
-*/
-public class FoodLikes {
-/*
+public class Car {
     @Id
     @GeneratedValue
     long id;
-    int rating;
-    @OneToOne
+    String name;
+
+
+    @OneToOne()
     User user;
-    @OneToOne
-    Food food;
-*/
 }

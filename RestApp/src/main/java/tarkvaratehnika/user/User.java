@@ -1,14 +1,20 @@
 package tarkvaratehnika.user;
 
-import lombok.Getter;
-import lombok.Setter;
-import tarkvaratehnika.restaurant.Restaurant;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import tarkvaratehnika.car.Car;
+import tarkvaratehnika.pen.Pen;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -17,19 +23,16 @@ public class User {
     @Id
     @GeneratedValue
     long id;
-    String userName;
-    String password;
-    String email;
     String firstName;
     String lastName;
+    int numOfPets;
 
-    @OneToOne(mappedBy="user",cascade=CascadeType.ALL)
-    Restaurant restaurant;
-    /*
-    @OneToMany(mappedBy="user")
-    RestaurantLikes restaurantLikes;
 
-    @OneToMany(mappedBy="user")
-    FoodLikes foodLikes;
-    */
+    @OneToOne(mappedBy="user",  // välja nimi Car klassis
+            cascade=CascadeType.ALL)
+    Car car;
+
+
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+    List<Pen> pens;
 }

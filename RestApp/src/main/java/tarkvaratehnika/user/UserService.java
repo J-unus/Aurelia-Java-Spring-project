@@ -3,8 +3,9 @@ package tarkvaratehnika.user;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import tarkvaratehnika.restaurant.Restaurant;
 
+import tarkvaratehnika.car.Car;
+import tarkvaratehnika.pen.Pen;
 
 @Service
 public class UserService {
@@ -15,11 +16,18 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User addUser(User user) {
+    User addUser(User user) {
         // here you can do some validations etc before saving the user
-        Restaurant restaurant = new Restaurant();
-       // restaurant.setUser(user);
-        user.setRestaurant(restaurant);
+        //user.setCar(new Car());
+        return userRepository.save(user);
+    }
+
+    User addUserPen(Pen pen, User user) {
+        // here you can do some validations etc before saving the user
+        List pens = user.getPens();
+        pens.add(pen);
+        pen.setUser(user);
+        user.setPens(pens);
         return userRepository.save(user);
     }
 
@@ -30,5 +38,4 @@ public class UserService {
     User getUserById(long userId) {
         return userRepository.findOne(userId);
     }
-
 }
