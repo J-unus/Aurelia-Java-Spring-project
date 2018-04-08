@@ -4,11 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import tarkvaratehnika.restaurant.Restaurant;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,8 +20,9 @@ public class User {
     String firstName;
     String lastName;
 
-    @OneToOne(mappedBy="user",cascade=CascadeType.ALL)
-    Restaurant restaurant;
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    List<Restaurant> restaurants;
+
     /*
     @OneToMany(mappedBy="user")
     RestaurantLikes restaurantLikes;

@@ -1,14 +1,13 @@
 package tarkvaratehnika.restaurant;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
-
 import tarkvaratehnika.foodCategory.FoodCategory;
 import tarkvaratehnika.user.User;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -24,7 +23,8 @@ public class Restaurant {
     int phoneNumber;
     String location;
 
-    @OneToOne()
+    @JsonBackReference
+    @ManyToOne()
     User user;
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)

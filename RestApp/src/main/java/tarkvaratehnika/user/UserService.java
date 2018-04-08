@@ -1,9 +1,9 @@
 package tarkvaratehnika.user;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 import tarkvaratehnika.restaurant.Restaurant;
+
+import java.util.List;
 
 
 @Service
@@ -17,14 +17,24 @@ public class UserService {
 
     public User addUser(User user) {
         // here you can do some validations etc before saving the user
-        Restaurant restaurant = new Restaurant();
-        restaurant.setUser(user);
-        user.setRestaurant(restaurant);
         return userRepository.save(user);
     }
+
+    User addUserRestaurant(Restaurant restaurant, User user) {
+        // here you can do some validations etc before saving the user
+        List<Restaurant> restaurants = user.getRestaurants();
+        restaurants.add(restaurant);
+        restaurant.setUser(user);
+        user.setRestaurants(restaurants);
+        return userRepository.save(user);
+    }
+
 
     List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    User getUserById(long userId) {
+        return userRepository.findOne(userId);
+    }
 }
