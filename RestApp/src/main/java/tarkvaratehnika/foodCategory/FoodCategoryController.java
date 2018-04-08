@@ -1,9 +1,8 @@
 package tarkvaratehnika.foodCategory;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import tarkvaratehnika.restaurant.Restaurant;
+import tarkvaratehnika.restaurant.RestaurantService;
 
 import java.util.List;
 
@@ -16,10 +15,10 @@ public class FoodCategoryController {
         this.foodCategoryService = foodCategoryService;
     }
 
-    @RequestMapping(value="/foodCategories/add", method= RequestMethod.POST,
+    @RequestMapping(value="/foodCategories/add/{id}", method= RequestMethod.POST,
             consumes = "application/json")
-    public FoodCategory addFoodCategory(@RequestBody FoodCategory foodCategory) {
-        return foodCategoryService.addFoodCategory(foodCategory);
+    public FoodCategory addFoodCategory(@RequestBody FoodCategory foodCategory,@PathVariable("id") long restaurantId) {
+        return foodCategoryService.addFoodCategory(foodCategory,restaurantId);
     }
     @RequestMapping(value="/foodCategories", method=RequestMethod.GET)
     public List<FoodCategory> getAllFoodCategories() {

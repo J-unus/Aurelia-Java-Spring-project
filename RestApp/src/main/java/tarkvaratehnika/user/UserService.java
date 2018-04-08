@@ -18,13 +18,17 @@ public class UserService {
     public User addUser(User user) {
         // here you can do some validations etc before saving the user
         Restaurant restaurant = new Restaurant();
-        restaurant.setUser(user);
+       // restaurant.setUser(user);
         user.setRestaurant(restaurant);
         return userRepository.save(user);
     }
 
     List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    User getUserById(long userId) {
+        return userRepository.findOne(userId);
     }
 
 }

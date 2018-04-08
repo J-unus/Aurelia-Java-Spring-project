@@ -21,10 +21,10 @@ public class FoodCategory {
     long id;
     String categoryName;
 
-    @ManyToOne()
+    @OneToOne()
     Restaurant restaurant;
-
+/*
     @OneToMany(mappedBy="foodCategory",cascade=CascadeType.ALL)
     List<Food> food;
-
+*/
 }

@@ -28,7 +28,8 @@ public class Restaurant {
     User user;
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
-    List<FoodCategory> foodCategory;
+    List <FoodCategory> foodCategory;
+
 
     /*
     @OneToMany(mappedBy="restaurant", cascade=CascadeType.ALL)

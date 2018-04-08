@@ -1,6 +1,10 @@
 package tarkvaratehnika.foodCategory;
 
 import org.springframework.stereotype.Service;
+import tarkvaratehnika.restaurant.Restaurant;
+import tarkvaratehnika.restaurant.RestaurantController;
+import tarkvaratehnika.restaurant.RestaurantRepository;
+import tarkvaratehnika.restaurant.RestaurantService;
 
 import java.util.List;
 
@@ -13,7 +17,7 @@ public class FoodCategoryService {
         this.foodCategoryRepository = foodCategoryRepository;
     }
 
-    public FoodCategory addFoodCategory(FoodCategory foodCategory) {
+    public FoodCategory addFoodCategory(FoodCategory foodCategory,long restaurantId) {
         // here you can do some validations etc before saving the user
         return foodCategoryRepository.save(foodCategory);
     }
