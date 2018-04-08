@@ -1,30 +1,30 @@
 package tarkvaratehnika.food;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
-import tarkvaratehnika.restaurants.Restaurants;
-/*
+import tarkvaratehnika.foodCategory.FoodCategory;
+import tarkvaratehnika.restaurant.Restaurant;
+
 @Entity
 @Getter
 @Setter
-*/
+
 public class Food {
-   /* @Id
+
+    @Id
     @GeneratedValue
     long id;
-    String foodClass;
     String description;
     String image;
     double price;
-    @OneToOne()
-    Restaurants restaurants;
-*/
 
+    @ManyToOne()
+    FoodCategory foodCategory;
+/*
+    @OneToOne(mappedBy="food")
+    FoodLikes foodLikes;
+*/
 }

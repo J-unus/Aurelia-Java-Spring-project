@@ -1,0 +1,26 @@
+<template>
+  <form id="userform" submit.delegate="addRestaurant()">
+  	<label for="name">Name:</label>
+    <input id="name" type="text" name="name" value.bind="restaurantData.name">
+     <br>
+    <label for="location">Location:</label>
+    <input id="location" type="text" name="location" value.bind="restaurantData.location">
+    <br>
+    <label for="openTime">Open Time:</label>
+    <input id="openTime" type="text" name="openTime" value.bind="restaurantData.openTime">
+    <br>
+    <label for="phoneNumber">Phone number:</label>
+    <input id="phoneNumber" type="number" name="phoneNumber" value.bind="restaurantData.phoneNumber">
+    <br>
+    <input type="submit" name="Lisa kasutaja">
+  </form>
+
+   <p>
+    <h3>Restoranid</h3>
+    <ul>
+      <li repeat.for="restaurant of restaurantList">${restaurant.name} ${restaurant.location} ${restaurant.openTime} ${restaurant.phoneNumber}</li>
+    </ul>
+  </p>
+
+</template>
+

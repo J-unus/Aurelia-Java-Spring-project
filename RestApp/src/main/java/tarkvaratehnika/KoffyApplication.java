@@ -30,4 +30,5 @@ public class KoffyApplication {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	}
+
 }

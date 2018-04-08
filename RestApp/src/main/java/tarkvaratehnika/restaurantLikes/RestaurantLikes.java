@@ -1,29 +1,21 @@
 package tarkvaratehnika.restaurantLikes;
 
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import tarkvaratehnika.user.User;
-import tarkvaratehnika.restaurants.Restaurants;
+import tarkvaratehnika.restaurant.Restaurant;
 /*
 @Entity
 @Getter
 @Setter
 */
 public class RestaurantLikes {
-    /*@Id
+    /*
+    @Id
     @GeneratedValue
     long id;
     int rating;
-    @OneToOne()
+    @OneToOne
     User user;
-    @OneToOne()
-    Restaurants restaurants;
-*/
-
+    @OneToOne
+    Restaurants restaurant;
+    */
 }

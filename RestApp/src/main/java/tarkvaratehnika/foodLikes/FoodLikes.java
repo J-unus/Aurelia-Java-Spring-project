@@ -16,14 +16,14 @@ import tarkvaratehnika.food.Food;
 @Setter
 */
 public class FoodLikes {
-  /*  @Id
+/*
+    @Id
     @GeneratedValue
     long id;
     int rating;
-    @OneToOne()
+    @OneToOne
     User user;
-    @OneToOne()
+    @OneToOne
     Food food;
 */
-
 }

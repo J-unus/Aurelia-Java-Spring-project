@@ -13,6 +13,8 @@ body {
 
 
 
+
+
 /* General sizing */
 
 ul.dropdown-lr {
@@ -22,9 +24,14 @@ ul.dropdown-lr {
 
 
 
+
+
 /* mobile fix */
 
 @media (max-width: 768px) {
+  .well-title{
+    margin-top:5px !important;
+  }
   .dropdown-lr h3 {
     color: #eee;
   }
@@ -42,6 +49,8 @@ label {
   color: #fff;
   background-color: #009edf !important;
 }
+
+
 
 
 
@@ -82,6 +91,8 @@ label {
 
 
 
+
+
 /*Search*/
 
 .col-centered {
@@ -92,6 +103,8 @@ label {
 h4 {
   font-weight: bold;
 }
+
+
 
 
 
@@ -164,7 +177,7 @@ h3 {
   opacity: 0.95;
   color: #fff !important;
   border-color: #00FFFF;
-  border-width: 1px;
+  border-width: 0.1px;
   background-color: #008080;
   margin: 0;
 }

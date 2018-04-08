@@ -1,0 +1,25 @@
+<template>
+  <form id="userform" submit.delegate="addUser()">
+    <label for="email">Email:</label>
+    <input id="email" type="text" name="email" value.bind="userData.email">
+    <br>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text" name="firstName" value.bind="userData.firstName">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text" name="lastName" value.bind="userData.lastName">
+    <br>
+    <label for="password">Password:</label>
+    <input id="password" type="text" name="password" value.bind="userData.password">
+    <br>
+    <label for="userName">User name:</label>
+    <input id="userName" type="text" name="userName" value.bind="userData.userName">
+    <input type="submit" name="Lisa kasutaja">
+  </form>
+  <p>
+    <h3>Kasutajad</h3>
+    <ul>
+      <li repeat.for="user of userList">${user.email} ${user.firstName} ${user.lastName} ${user.password} ${user.userName}</li>
+    </ul>
+  </p>
+</template>

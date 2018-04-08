@@ -1,8 +1,13 @@
 package tarkvaratehnika.user;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -16,7 +21,6 @@ public class UserController {
     @RequestMapping(value="/users/add", method=RequestMethod.POST,
             consumes = "application/json")
     public User addUser(@RequestBody User user) {
-        System.out.println("user firstname= " + user.firstName);
         return userService.addUser(user);
     }
 
