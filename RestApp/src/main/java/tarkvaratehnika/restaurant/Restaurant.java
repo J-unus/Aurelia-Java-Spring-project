@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-
 public class Restaurant {
     @Id
     @GeneratedValue
@@ -28,10 +27,5 @@ public class Restaurant {
     User user;
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
-    List<FoodCategory> foodCategory;
-
-    /*
-    @OneToMany(mappedBy="restaurant", cascade=CascadeType.ALL)
-    List<Food> food;
-    */
+    List<FoodCategory> foodCategories;
 }

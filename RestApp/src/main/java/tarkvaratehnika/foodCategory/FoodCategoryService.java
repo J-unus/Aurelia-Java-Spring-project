@@ -1,11 +1,13 @@
 package tarkvaratehnika.foodCategory;
 
 import org.springframework.stereotype.Service;
+import tarkvaratehnika.food.Food;
 
 import java.util.List;
 
 @Service
 public class FoodCategoryService {
+
 
     private FoodCategoryRepository foodCategoryRepository;
 
@@ -18,8 +20,19 @@ public class FoodCategoryService {
         return foodCategoryRepository.save(foodCategory);
     }
 
+    FoodCategory addFood(Food food, FoodCategory foodCategory) {
+        List<Food> foods = foodCategory.getFoods();
+        foods.add(food);
+        food.setFoodCategory(foodCategory);
+        foodCategory.setFoods(foods);
+        return foodCategoryRepository.save(foodCategory);
+    }
+
     List<FoodCategory> getAllFoodCategories() {
         return foodCategoryRepository.findAll();
     }
 
+    FoodCategory getFoodCategoryById(long foodCategoryId) {
+        return foodCategoryRepository.findOne(foodCategoryId);
+    }
 }

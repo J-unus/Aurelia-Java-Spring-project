@@ -2,10 +2,12 @@ package tarkvaratehnika.user;
 
 import lombok.Getter;
 import lombok.Setter;
+import tarkvaratehnika.foodLike.FoodLike;
 import tarkvaratehnika.restaurant.Restaurant;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,6 +21,7 @@ public class User {
     String email;
     String firstName;
     String lastName;
+    Set<FoodLike> foodLikes;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
     List<Restaurant> restaurants;
@@ -26,8 +29,16 @@ public class User {
     /*
     @OneToMany(mappedBy="user")
     RestaurantLikes restaurantLikes;
+    */
 
-    @OneToMany(mappedBy="user")
-    FoodLikes foodLikes;
+    /*
+    @OneToMany(mappedBy = "user")
+    public Set<FoodLike> getfoodLikes() {
+        return foodLikes;
+    }
+
+    public void setFoodLikes(Set<FoodLike> foodLikes) {
+        this.foodLikes = foodLikes;
+    }
     */
 }

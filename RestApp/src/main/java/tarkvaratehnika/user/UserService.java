@@ -20,15 +20,14 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    User addUserRestaurant(Restaurant restaurant, User user) {
-        // here you can do some validations etc before saving the user
+    User addRestaurant(User user, Restaurant restaurant) {
+        // here you can do some validations etc before saving the restaurant
         List<Restaurant> restaurants = user.getRestaurants();
         restaurants.add(restaurant);
         restaurant.setUser(user);
         user.setRestaurants(restaurants);
         return userRepository.save(user);
     }
-
 
     List<User> getAllUsers() {
         return userRepository.findAll();

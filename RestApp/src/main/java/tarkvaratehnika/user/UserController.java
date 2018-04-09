@@ -32,8 +32,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/addRestaurant/{id}", method=RequestMethod.POST,consumes = "application/json")
-    public User addUserPen(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
-        return userService.addUserRestaurant(restaurant, userService.getUserById(userId));
+    public User addRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
+        return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
+
 
 }

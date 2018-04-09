@@ -1,13 +1,12 @@
 package tarkvaratehnika.foodCategory;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
-
 import tarkvaratehnika.food.Food;
 import tarkvaratehnika.restaurant.Restaurant;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -21,10 +20,11 @@ public class FoodCategory {
     long id;
     String categoryName;
 
+    @JsonBackReference
     @ManyToOne()
     Restaurant restaurant;
 
     @OneToMany(mappedBy="foodCategory",cascade=CascadeType.ALL)
-    List<Food> food;
+    List<Food> foods;
 
 }
