@@ -64,11 +64,18 @@ public class UserControllerTest {
     public void getUser() throws Exception {
         User user = new User();
         user.setUserName("name");
+        user.setEmail("ema il");
+        user.setFirstName("first name");
+        user.setLastName("last name");
+        user.setPassword("demo");
 
         given(userController.getUser(user.getId())).willReturn(user);
         mvc.perform(get("/users/0").accept(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("userName", is(user.getUserName())));
+                .andExpect(jsonPath("userName", is(user.getUserName())))
+                .andExpect(jsonPath("email", is(user.getEmail())))
+                .andExpect(jsonPath("firstName", is(user.getFirstName())))
+                .andExpect(jsonPath("password", is(user.getPassword())));
     }
 
     @Test
