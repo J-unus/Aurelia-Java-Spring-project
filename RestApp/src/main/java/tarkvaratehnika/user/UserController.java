@@ -1,5 +1,6 @@
 package tarkvaratehnika.user;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tarkvaratehnika.restaurant.Restaurant;
 
@@ -17,6 +18,7 @@ public class UserController {
 
     @RequestMapping(value="/users/add", method=RequestMethod.POST,
             consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public User addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
@@ -27,14 +29,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}", method=RequestMethod.GET)
-    public User getUser(@PathVariable("id") long userId) {
+    public User getUserById(@PathVariable("id") long userId) {
         return userService.getUserById(userId);
     }
 
     @RequestMapping(value = "/users/addRestaurant/{id}", method=RequestMethod.POST,consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public User addRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
         return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
-
-
 }
