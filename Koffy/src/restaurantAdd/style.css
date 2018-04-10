@@ -1,0 +1,129 @@
+/*Main style*/
+
+body {
+  padding-top: 20px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");
+  font-family: 'Iceland', cursive;
+}
+
+
+/* General sizing */
+
+ul.dropdown-lr {
+  width: 300px;
+}
+
+
+label {
+  letter-spacing: 0px;
+}
+
+.login-background,
+.register-background {
+  color: #fff;
+  background-color: #009edf !important;
+}
+
+
+
+
+/*NavBar*/
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #008080;
+  z-index: 9;
+  border: 0;
+  font-size: 1.5em !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 3px;
+  border-radius: 0;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+  font-size: 1em;
+  color: #fff !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+
+
+/*Contact sectiom*/
+
+.content-header {
+  font-family: 'Oleo Script', cursive;
+  color: #fcc500;
+  font-size: 45px;
+}
+
+.section-content {
+  text-align: center;
+}
+
+#contact {
+  padding-top: 10px;
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: #3a6186;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #007080, #006080);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #007080, #006080);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+
+.contact-section {
+  padding-top: 40px;
+}
+
+.contact-section .col-md-6 {
+  width: 50%;
+}
+
+.form-line {
+  border-right: 1px solid #B29999;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+label {
+  font-size: 1.3em;
+  line-height: 1em;
+  font-weight: normal;
+}
+
+.form-control {
+  font-size: 1.3em;
+  color: #080808;
+}
+
+textarea.form-control {
+  height: 135px;
+  /* margin-top: px;*/
+}
+
+.submit {
+  font-size: 1.1em;
+  float: right;
+  width: 150px;
+  background-color: transparent;
+  color: #fff;
+}

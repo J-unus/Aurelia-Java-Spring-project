@@ -1,7 +1,17 @@
-import { HttpClient, json } from 'aurelia-fetch-client'
+//import { HttpClient, json } from 'aurelia-fetch-client'
+export class foodAdd {
+        addTab(){
+          var tabID = $('.tab-pane').length;
+          console.log(tabID);
+          tabID++;
+          $('#tab-list').append($('<li><a href="#tab' + tabID + '" role="tab" data-toggle="tab">Tab ' + tabID + '<button class="close" type="button" title="Remove this page">×</button></a></li>'));
+          $('#tab-content').append($('<div class="tab-pane fade" id="tab' + tabID + '">Tab ' + tabID + ' content</div>'));
+        }
 
-export class restaurantAdd {
 
+
+
+  /*
   restaurantData = {}
   restaurantList = []
 
@@ -26,4 +36,5 @@ export class restaurantAdd {
 
     console.log("Method executed!")
   }
+  */
 }

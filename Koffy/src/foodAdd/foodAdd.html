@@ -114,47 +114,78 @@
       </div>
     </div>
   </nav>
-
-  <section id="contact">
-      <div class="section-content">
-        <h1 class="section-header">Register <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Amazing restaurant</span></h1>
+  <div class="container">
+    <div class="row col-md-4 col-md-offset-4 col-xs-12">
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#menuModal">Edit menu</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#foodModal">Edit food categories</button>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-xs-12">
+        <p>
+          <button id="btn-add-tab" type="button" class="btn btn-primary" click.delegate="addTab()">Add Category</button>
+        </p>
+        <!-- Nav tabs -->
+        <ul id="tab-list" class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Tab 1</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div id="tab-content" class="tab-content">
+          <div class="tab-pane fade in active" id="tab1">Tab 1 content</div>
+        </div>
       </div>
-      <div class="contact-section">
-      <div class="container">
-        <form id="restaurantRegisterForm" submit.delegate="addRestaurant()">
-          <div class="col-md-6 col-xs-6 form-line">
-              <div class="form-group">
-                <label for="name">Restorant name</label>
-                <input type="text" class="form-control" id="name" name="name" value.bind="restaurantData.name" placeholder=" Enter restaurant name">
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="menuModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mimosa menüü kategooriad</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <a data-toggle="collapse" data-target="#exampleMenuCollapse">
+              <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+                <div class="col-sm-10 col-xs-10 text-center">
+                  Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
+                </div>
+                <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
+                  7.80
+                  <span class="glyphicon glyphicon-euro"></span>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="openTime">Open time</label>
-                <input type="time" class="form-control" id="openTime" name="openTime" value.bind="restaurantData.openTime" placeholder=" Enter open time">
-              </div>
-              <div class="form-group">
-                <label for="closeTime">Close time</label>
-                <input type="time" class="form-control" id="closeTime" name="closeTime" value.bind="restaurantData.closeTime" placeholder=" Enter close time">
-              </div>   
-              <div class="form-group">
-                <label for="phoneNumber">Mobile No.</label>
-                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" value.bind="restaurantData.phoneNumber" placeholder=" Enter mobile no.">
-              </div>
-              <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" class="form-control" id="location" name="location" value.bind="restaurantData.location" placeholder=" Enter location">
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-6">
-              <div class="form-group">
-                <label for ="description"> Description</label>
-                <textarea  class="form-control" id="description" name="description" value.bind="restaurantData.description" placeholder="Enter restaurant description"></textarea>
-              </div>
-              <div>
-                <button type="submit" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Register</button>
-              </div>
-              
+            </a>
           </div>
-        </form>
+          <div id="exampleMenuCollapse" class="collapse">
+              <div class="row">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Save changes<span class="glyphicon glyphicon-edit glyphicon-move-element"></span></button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Remove<span class="glyphicon glyphicon-remove glyphicon-move-element"></span></button>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+  <div id="foodModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mimosa menüü toidud</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
