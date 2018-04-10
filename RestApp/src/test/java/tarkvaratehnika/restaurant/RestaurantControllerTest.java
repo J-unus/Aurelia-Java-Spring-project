@@ -35,10 +35,6 @@ public class RestaurantControllerTest {
     private RestaurantController restaurantController;
 
     @Test
-    public void addRestaurant() throws Exception {
-    }
-
-    @Test
     public void getAllRestaurants() throws Exception {
         Restaurant restaurant = new Restaurant();
         restaurant.setName("name");

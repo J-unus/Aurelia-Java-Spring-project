@@ -61,11 +61,11 @@ public class UserControllerTest {
     }
 
     @Test
-    public void getUsersById() throws Exception {
+    public void getUser() throws Exception {
         User user = new User();
         user.setUserName("name");
 
-        given(userController.getUserById(user.getId())).willReturn(user);
+        given(userController.getUser(user.getId())).willReturn(user);
         mvc.perform(get("/users/0").accept(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("userName", is(user.getUserName())));
