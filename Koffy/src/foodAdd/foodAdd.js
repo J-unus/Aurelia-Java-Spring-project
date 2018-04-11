@@ -1,33 +1,33 @@
-//import { HttpClient, json } from 'aurelia-fetch-client'
+import { HttpClient, json } from 'aurelia-fetch-client'
+
 export class foodAdd {
-        addTab(){
-          var tabID = $('.tab-pane').length;
-          console.log(tabID);
-          tabID++;
-          $('#tab-list').append($('<li><a href="#tab' + tabID + '" role="tab" data-toggle="tab">Tab ' + tabID + '<button class="close" type="button" title="Remove this page">×</button></a></li>'));
-          $('#tab-content').append($('<div class="tab-pane fade" id="tab' + tabID + '">Tab ' + tabID + ' content</div>'));
-        }
 
 
-
-
-  /*
-  restaurantData = {}
-  restaurantList = []
+  foodData = {}
+  foodList = []
+  foodCategoryData = {}
+  foodCategoryList = []
+  restaurantsList = []
 
   activate() {
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/restaurants')
+    client.fetch('http://localhost:8080/foodCategories')
+      .then(response => response.json())
+      .then(foodCategories => this.foodCategoryList = foodCategories);
+    client.fetch('http://localhost:8080/foods')
+      .then(response => response.json())
+      .then(foods => this.foodList = foods);
+    client.fetch('http://localhost:8080/restaurants/1')
       .then(response => response.json())
       .then(restaurants => this.restaurantList = restaurants);
   }
 
-  addRestaurant() {
+  addCategory() {
     let client = new HttpClient();
-    client.fetch('http://localhost:8080/users/addRestaurant/1', {
+    client.fetch('http://localhost:8080/restaurants/addFoodCategory/1', {
         'method': "POST",
-        'body': json(this.restaurantData)
+        'body': json(this.foodCategoryData)
       })
       .then(response => response.json())
       .then(data => {
@@ -35,6 +35,47 @@ export class foodAdd {
       });
 
     console.log("Method executed!")
+
+    var toAdd = "<div class='row'" +
+      "repeat.for='food of foodList'>" +
+      "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
+      "<div class='col-sm-12 col-xs-12 text-center'>" +
+      this.foodCategoryData.categoryName +
+      "</div>" +
+      "</div>" +
+      "</div>";
+
+    $(".categories").prepend($(toAdd).fadeIn('slow'));
+
   }
-  */
+
+  addFood() {
+    let client = new HttpClient();
+    client.fetch('http://localhost:8080/foodCategories/addFood/1', {
+        'method': "POST",
+        'body': json(this.foodData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Server saatis " + data.name);
+      });
+
+    console.log("Method executed!")
+
+    var toAdd = '<div class="row" repeat.for="food of foodList">' +
+      '<div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">' +
+      '<div class="col-sm-10 col-xs-10 text-center">' +
+      this.foodData.description +
+      '</div>' +
+      '<div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">' +
+      this.foodData.price +
+      '<span class="glyphicon glyphicon-euro"></span>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+
+    $(".food").prepend($(toAdd).fadeIn('slow'));
+
+  }
+
 }

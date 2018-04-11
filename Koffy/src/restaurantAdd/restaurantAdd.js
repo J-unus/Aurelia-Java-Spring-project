@@ -15,7 +15,7 @@ export class restaurantAdd {
 
   addRestaurant() {
     let client = new HttpClient();
-    client.fetch('http://localhost:8080/users/addRestaurant/1', {
+    client.fetch('http://localhost:8080/users/addRestaurant/4', {
         'method': "POST",
         'body': json(this.restaurantData)
       })

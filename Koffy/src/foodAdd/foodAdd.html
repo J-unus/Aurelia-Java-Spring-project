@@ -13,102 +13,19 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="">About</a></li>
           <li><a href="">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
-            <ul class="dropdown-menu dropdown-lr animated flipInX register-background" role="menu">
-              <div class="col-lg-12">
-                <div class="text-center">
-                  <h3><b>Register</b></h3></div>
-                <form id="ajax-register-form" action="" method="post" role="form" autocomplete="off">
-                  <div class="form-group">
-                    <label for="name" class="cols-sm-2 control-label">Name</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-text-background" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="email" class="cols-sm-2 control-label">Email</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="username" class="cols-sm-2 control-label">Username</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="username" id="usernameRegister" placeholder="Enter your Username" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="password" class="cols-sm-2 control-label">Password</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="password" id="passwordRegister" placeholder="Enter your Password" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="confirmRegister" id="confirm" placeholder="Confirm your Password" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                  </div>
-                </form>
-              </div>
-            </ul>
+          <li>
+            <a href="/#/restaurantAdd/">Register restaurant</a>
           </li>
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
-            <ul class="dropdown-menu dropdown-lr animated slideInRight login-background" role="menu">
-              <div class="col-lg-12">
-                <div class="text-center">
-                  <h3><b>Log In</b></h3></div>
-                <form id="ajax-login-form" action="" method="post" role="form" autocomplete="off">
-                  <div class="form-group">
-                    <label for="username" class="cols-sm-2 control-label">Username</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="username" id="usernameLogin" placeholder="Enter your Username" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="password" class="cols-sm-2 control-label">Password</label>
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="password" id="passwordLogin" placeholder="Enter your Password" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
-                  </div>
-                  <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
-                </form>
-              </div>
-            </ul>
+          <li class="active">
+            <a href="/#/foodAdd">Setting</a>
+          </li>
+          <li>
+            <a href="/#/home">Log out</a>
           </li>
         </ul>
       </div>
@@ -116,23 +33,8 @@
   </nav>
   <div class="container">
     <div class="row col-md-4 col-md-offset-4 col-xs-12">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#menuModal">Edit menu</button>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#foodModal">Edit food categories</button>
-    </div>
-    <div class="row">
-      <div class="col-md-10 col-xs-12">
-        <p>
-          <button id="btn-add-tab" type="button" class="btn btn-primary" click.delegate="addTab()">Add Category</button>
-        </p>
-        <!-- Nav tabs -->
-        <ul id="tab-list" class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Tab 1</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div id="tab-content" class="tab-content">
-          <div class="tab-pane fade in active" id="tab1">Tab 1 content</div>
-        </div>
-      </div>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#menuModal">Edit food categories</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#foodModal">Edit menu</button>
     </div>
   </div>
   <!-- Modal -->
@@ -142,31 +44,34 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Mimosa menüü kategooriad</h4>
+          <h4 class="modal-title">Menüü kategooriad</h4>
         </div>
         <div class="modal-body">
           <div class="row">
-            <a data-toggle="collapse" data-target="#exampleMenuCollapse">
-              <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
-                <div class="col-sm-10 col-xs-10 text-center">
-                  Honey-glazed baked goat’s cheese with leek-sweet potato cream, mini beetroot and figs
-                </div>
-                <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
-                  7.80
-                  <span class="glyphicon glyphicon-euro"></span>
+            <form id="categoryAddForm" submit.delegate="addCategory()">
+              <div class="col-md-12 col-xs-12 form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="categoryName">Category name:</label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" value.bind="foodCategoryData.categoryName" placeholder=" Enter category name">
+                  </div>
+                  <button type="submit" class="btn btn-success submit"><h3>ADD<h3></button>
                 </div>
               </div>
-            </a>
+            </form>
           </div>
-          <div id="exampleMenuCollapse" class="collapse">
-              <div class="row">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Save changes<span class="glyphicon glyphicon-edit glyphicon-move-element"></span></button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Remove<span class="glyphicon glyphicon-remove glyphicon-move-element"></span></button>
+          <div class="categories">
+            <div class="row" repeat.for="foodCategory of restaurantList.foodCategories">
+              <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+                <div class="col-sm-12 col-xs-12 text-center">
+                  ${foodCategory.categoryName}
+                </div>
               </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -177,10 +82,38 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Mimosa menüü toidud</h4>
+          <h4 class="modal-title">Menüü toidud</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <div class="row">
+            <form id="foodAddForm" submit.delegate="addFood()">
+              <div class="col-md-12 col-xs-12 form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="foodAdd">Add item:</label>
+                  <div class="row col-md-10">
+                    <input type="text" class="form-control" id="foodDescription" name="foodDescription" value.bind="foodData.description" placeholder=" Enter food description">
+                    <input type="number" class="form-control" id="foodPrice" name="foodPrice" value.bind="foodData.price" placeholder=" Enter food price">
+                  </div>
+                  <div class="col-md-5 col-md-offset-4">
+                  <button type="submit" class="btn btn-success btn-block submit"><h3>ADD</h3></button>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="food" repeat.for="foodCategory of restaurantList.foodCategories">
+            <div class="row" repeat.for="food of foodCategory.foods">
+              <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+                <div class="col-sm-10 col-xs-10 text-center">
+                  ${food.description}
+                </div>
+                <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
+                  ${food.price}
+                  <span class="glyphicon glyphicon-euro"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -2,13 +2,15 @@
 
 body {
   padding-top: 60px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: top;
-  background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");
+  background: #3a6186;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #007080, #006080);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #007080, #006080);
+  /*background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");*/
   font-family: 'Iceland', cursive;
 }
+
 
 
 
@@ -28,6 +30,7 @@ label {
   color: #fff;
   background-color: #009edf !important;
 }
+
 
 
 
@@ -62,6 +65,7 @@ label {
   border-color: transparent;
   color: #fff !important;
 }
+
 
 
 
@@ -96,6 +100,7 @@ label {
 
 
 
+
 /*NavBar*/
 
 .navbar {
@@ -134,6 +139,7 @@ label {
 
 
 
+
 /*Search*/
 
 .col-centered {
@@ -144,6 +150,7 @@ label {
 h4 {
   font-weight: bold;
 }
+
 
 
 
@@ -290,14 +297,16 @@ a:hover {
   color: #343a40 !important;
   background-color: #fff !important;
 }
-#tab-content{
+
+#tab-content {
   background-color: red;
   height: 50vh;
 }
 
-.glyphicon-move-element{
+.glyphicon-move-element {
   margin-left: 5px;
 }
-.center{
-  margin:auto;
+
+.center {
+  margin: auto;
 }

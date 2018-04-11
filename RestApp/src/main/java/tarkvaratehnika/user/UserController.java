@@ -1,13 +1,10 @@
 package tarkvaratehnika.user;
 
+import org.springframework.web.bind.annotation.*;
+import tarkvaratehnika.restaurant.Restaurant;
+
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import tarkvaratehnika.pen.Pen;
 
 @RestController
 public class UserController {
@@ -34,9 +31,10 @@ public class UserController {
         return userService.getUserById(userId);
     }
 
-    @RequestMapping(value = "/users/addPen/{id}", method=RequestMethod.POST,consumes = "application/json")
-    public User addUserPen(@RequestBody Pen pen, @PathVariable("id") long userId) {
-        return userService.addUserPen(pen,userService.getUserById(userId));
+    @RequestMapping(value = "/users/addRestaurant/{id}", method=RequestMethod.POST,consumes = "application/json")
+    public User addRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
+        return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
+
 
 }
