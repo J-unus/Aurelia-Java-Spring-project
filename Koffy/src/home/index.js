@@ -1,14 +1,42 @@
+import { HttpClient, json } from 'aurelia-fetch-client'
+
 export class home {
-	constructor() {
-    this.items = [{
-      title: "Charmander",
-      text: "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail."
-    },{
-      title: "Squirtle",
-      text: "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth."
-    },{
-      title: "Bulbasaur",
-      text: "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON."
-    }]
+
+    foodData = {}
+    foodList = []
+    foodCategoryData = {}
+    foodCategoryList = []
+    restaurantData = {}
+    restaurantList = []
+    userData = {}
+
+  activate() {
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/foodCategories')
+      .then(response => response.json())
+      .then(foodCategories => this.foodCategoryList = foodCategories);
+    client.fetch('http://localhost:8080/foods')
+      .then(response => response.json())
+      .then(foods => this.foodList = foods);
+    client.fetch('http://localhost:8080/restaurants')
+      .then(response => response.json())
+      .then(restaurants => this.restaurantList = restaurants);
   }
+
+  addUser() {
+    let client = new HttpClient();
+    client.fetch('http://localhost:8080/users/add', {
+        'method': "POST",
+        'body': json(this.userData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Server saatis " + data.name);
+      });
+
+    console.log("Method executed!")
+
+  }
+
 }

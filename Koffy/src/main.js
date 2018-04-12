@@ -1,5 +1,4 @@
 import environment from './environment';
-import 'bootstrap';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
