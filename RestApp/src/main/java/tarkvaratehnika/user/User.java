@@ -27,6 +27,9 @@ public class User {
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
     List<Restaurant> restaurants;
 
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    List<Restaurant> restaurants;
+
     /*
     @OneToMany(mappedBy="user")
     RestaurantLikes restaurantLikes;
@@ -34,7 +37,7 @@ public class User {
 
     /*
     @OneToMany(mappedBy = "user")
-    public Set<FoodLike> getfoodLikes() {
+    public Set<FoodLike> getFoodLikes() {
         return foodLikes;
     }
 

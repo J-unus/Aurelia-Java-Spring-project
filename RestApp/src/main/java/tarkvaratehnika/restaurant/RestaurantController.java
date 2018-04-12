@@ -1,5 +1,6 @@
 package tarkvaratehnika.restaurant;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tarkvaratehnika.foodCategory.FoodCategory;
 
@@ -32,6 +33,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/restaurants/addFoodCategory/{id}", method=RequestMethod.POST,consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public Restaurant addFoodCategory(@RequestBody FoodCategory foodCategory, @PathVariable("id") long restaurantId) {
         return restaurantService.addFoodCategory(foodCategory, restaurantService.getRestaurantById(restaurantId));
     }

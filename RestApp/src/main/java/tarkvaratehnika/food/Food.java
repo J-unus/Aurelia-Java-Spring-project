@@ -6,7 +6,10 @@ import lombok.Setter;
 import tarkvaratehnika.foodCategory.FoodCategory;
 import tarkvaratehnika.foodLike.FoodLike;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Entity
@@ -24,6 +27,7 @@ public class Food {
     /*
     Set<FoodLike> foodLikes;
     */
+    @JsonBackReference
     @JsonBackReference
     @ManyToOne()
     FoodCategory foodCategory;
