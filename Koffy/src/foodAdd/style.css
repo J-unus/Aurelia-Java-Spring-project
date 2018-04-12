@@ -1,17 +1,15 @@
 /*Main style*/
 
 body {
-  padding-top: 90px;
+  padding-top: 60px;
   background: #3a6186;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #007080, #006080);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #007080, #006080);
+  /*background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");*/
   font-family: 'Iceland', cursive;
 }
-
-
-
 
 
 
@@ -23,7 +21,50 @@ ul.dropdown-lr {
 }
 
 
+label {
+  letter-spacing: 0px;
+}
 
+.login-background,
+.register-background {
+  color: #fff;
+  background-color: #009edf !important;
+}
+
+
+
+
+
+
+/*NavBar*/
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #008080;
+  z-index: 9;
+  border: 0;
+  font-size: 1.5em !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 3px;
+  border-radius: 0;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+  font-size: 1em;
+  color: #fff !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
 
 
 
@@ -51,6 +92,7 @@ label {
   color: #fff;
   background-color: #009edf !important;
 }
+
 
 
 
@@ -97,6 +139,7 @@ label {
 
 
 
+
 /*Search*/
 
 .col-centered {
@@ -107,6 +150,7 @@ label {
 h4 {
   font-weight: bold;
 }
+
 
 
 
@@ -252,4 +296,17 @@ a:hover {
 .nav-tabs>li.active a {
   color: #343a40 !important;
   background-color: #fff !important;
+}
+
+#tab-content {
+  background-color: red;
+  height: 50vh;
+}
+
+.glyphicon-move-element {
+  margin-left: 5px;
+}
+
+.center {
+  margin: auto;
 }

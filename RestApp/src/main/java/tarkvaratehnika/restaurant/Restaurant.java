@@ -19,8 +19,10 @@ public class Restaurant {
     long id;
     String name;
     String openTime;
-    int phoneNumber;
+    String closeTime;
+    String phoneNumber;
     String location;
+    String description;
 
     @JsonBackReference
     @ManyToOne()
