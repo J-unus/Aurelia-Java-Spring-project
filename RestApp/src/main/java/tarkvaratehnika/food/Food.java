@@ -4,13 +4,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import tarkvaratehnika.foodCategory.FoodCategory;
-import tarkvaratehnika.foodLike.FoodLike;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -27,7 +25,6 @@ public class Food {
     /*
     Set<FoodLike> foodLikes;
     */
-    @JsonBackReference
     @JsonBackReference
     @ManyToOne()
     FoodCategory foodCategory;
