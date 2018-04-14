@@ -20,7 +20,7 @@ public class RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
-    Restaurant addFoodCategory(FoodCategory foodCategory, Restaurant restaurant) {
+    public Restaurant addFoodCategory(FoodCategory foodCategory, Restaurant restaurant) {
         List<FoodCategory> foodCategories = restaurant.getFoodCategories();
         foodCategories.add(foodCategory);
         foodCategory.setRestaurant(restaurant);
@@ -29,11 +29,11 @@ public class RestaurantService {
     }
 
 
-    List<Restaurant> getAllRestaurants() {
+    public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
 
-    Restaurant getRestaurantById(long restaurantId) {
+    public Restaurant getRestaurantById(long restaurantId) {
         return restaurantRepository.findOne(restaurantId);
     }
 }

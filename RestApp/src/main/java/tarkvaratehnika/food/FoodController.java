@@ -13,7 +13,6 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-
     @RequestMapping(value="/foods", method=RequestMethod.GET)
     public List<Food> getAllFoods() {
         return foodService.getAllFoods();

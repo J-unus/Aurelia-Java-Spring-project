@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import tarkvaratehnika.foodCategory.FoodCategory;
+import tarkvaratehnika.restaurantLike.RestaurantLike;
 import tarkvaratehnika.user.User;
 
 import javax.persistence.*;
@@ -30,4 +31,7 @@ public class Restaurant {
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
     List<FoodCategory> foodCategories;
+
+    @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
+    List<RestaurantLike> restaurantLikes;
 }

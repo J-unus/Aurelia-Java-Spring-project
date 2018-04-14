@@ -13,8 +13,11 @@ public class FoodService {
         this.foodRepository = foodRepository;
     }
 
-    List<Food> getAllFoods() {
+    public List<Food> getAllFoods() {
         return foodRepository.findAll();
+    }
+    public Food getFoodById(long foodId) {
+        return foodRepository.findOne(foodId);
     }
 
 }

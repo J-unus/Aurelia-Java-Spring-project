@@ -1,10 +1,10 @@
-package tarkvaratehnika.foodLike;
+package tarkvaratehnika.restaurantLike;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import tarkvaratehnika.food.Food;
+import tarkvaratehnika.restaurant.Restaurant;
 import tarkvaratehnika.user.User;
 
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Getter
 @Setter
-public class FoodLike {
+public class RestaurantLike {
     @Id
     @GeneratedValue
     long id;
@@ -27,5 +27,5 @@ public class FoodLike {
 
     @JsonIgnore
     @ManyToOne()
-    Food food;
+    Restaurant restaurant;
 }

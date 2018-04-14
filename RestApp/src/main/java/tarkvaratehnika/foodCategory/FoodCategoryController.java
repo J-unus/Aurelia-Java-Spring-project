@@ -38,10 +38,4 @@ public class FoodCategoryController {
     public FoodCategory addFood(@RequestBody Food food, @PathVariable("id") long foodCategoryId) {
         return foodCategoryService.addFood(food, foodCategoryService.getFoodCategoryById(foodCategoryId));
     }
-    /*
-    @RequestMapping(value = "/restaurants/addFoodCategory/{id}", method=RequestMethod.POST,consumes = "application/json")
-    public Restaurant addFoodCategory(@RequestBody FoodCategory foodCategory, @PathVariable("id") long restaurantId) {
-        return restaurantService.addFoodCategory(foodCategory, restaurantService.getRestaurantById(restaurantId));
-    }
-     */
 }
