@@ -3,6 +3,7 @@ package tarkvaratehnika.food;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+import tarkvaratehnika.comment.Comment;
 import tarkvaratehnika.foodCategory.FoodCategory;
 import tarkvaratehnika.foodLike.FoodLike;
 
@@ -27,4 +28,7 @@ public class Food {
 
     @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
     private List<FoodLike> foodLikes;
+
+    @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
+    private List<Comment> comments;
 }

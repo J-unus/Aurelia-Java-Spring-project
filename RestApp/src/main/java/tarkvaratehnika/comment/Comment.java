@@ -24,9 +24,9 @@ public class Comment {
 
     @JsonIgnore
     @ManyToOne()
-    User user;
+    private User user;
 
     @JsonIgnore
     @ManyToOne()
-    Food food;
+    private Food food;
 }

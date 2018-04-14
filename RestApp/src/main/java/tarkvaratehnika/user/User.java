@@ -2,6 +2,7 @@ package tarkvaratehnika.user;
 
 import lombok.Getter;
 import lombok.Setter;
+import tarkvaratehnika.comment.Comment;
 import tarkvaratehnika.foodLike.FoodLike;
 import tarkvaratehnika.restaurant.Restaurant;
 import tarkvaratehnika.restaurantLike.RestaurantLike;
@@ -30,4 +31,7 @@ public class User {
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
     private List<RestaurantLike> restaurantLikes;
+
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private List<Comment> comments;
 }
