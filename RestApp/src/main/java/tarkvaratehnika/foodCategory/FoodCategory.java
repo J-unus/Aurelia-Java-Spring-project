@@ -12,19 +12,17 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-
 public class FoodCategory {
 
     @Id
     @GeneratedValue
-    long id;
-    String categoryName;
+    private long id;
+    private String categoryName;
 
     @JsonBackReference
     @ManyToOne()
-    Restaurant restaurant;
+    private Restaurant restaurant;
 
     @OneToMany(mappedBy="foodCategory",cascade=CascadeType.ALL)
-    List<Food> foods;
-
+    private List<Food> foods;
 }

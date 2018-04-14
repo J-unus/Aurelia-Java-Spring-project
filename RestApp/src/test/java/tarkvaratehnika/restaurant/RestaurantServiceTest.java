@@ -8,7 +8,6 @@ import tarkvaratehnika.user.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -16,7 +15,6 @@ public class RestaurantServiceTest {
 
     private RestaurantRepository repository;
     private RestaurantService service;
-
 
     @Before
     public void setUp() throws Exception {
@@ -74,5 +72,4 @@ public class RestaurantServiceTest {
         service.getRestaurantById(1L);
         verify(repository).findOne(1L);
     }
-
 }

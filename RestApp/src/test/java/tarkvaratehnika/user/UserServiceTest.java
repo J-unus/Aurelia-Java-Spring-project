@@ -7,12 +7,10 @@ import tarkvaratehnika.restaurant.Restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class UserServiceTest {
-
     private UserRepository repository;
     private UserService service;
 
@@ -39,11 +37,8 @@ public class UserServiceTest {
         restaurants.add(restaurant1);
 
         user.setRestaurants(restaurants);
-
         service.addRestaurant(user, restaurant2);
-
         verify(repository).save(user);
-
     }
 
     @Test
@@ -71,6 +66,5 @@ public class UserServiceTest {
         service.addUser(user);
         service.getUserById(1L);
         verify(repository).findOne(1L);
-
     }
 }

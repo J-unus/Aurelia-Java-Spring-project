@@ -1,6 +1,5 @@
 package tarkvaratehnika.foodCategory;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +32,3 @@ public class FoodCategoryRepositoryTest {
         assertEquals(found.getCategoryName(), FoodCategory.getCategoryName());
     }
 }
-

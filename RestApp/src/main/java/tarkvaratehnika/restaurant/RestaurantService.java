@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class RestaurantService {
 
-
     private RestaurantRepository restaurantRepository;
 
     public RestaurantService(RestaurantRepository restaurantRepository) {
@@ -16,11 +15,10 @@ public class RestaurantService {
     }
 
     public Restaurant addRestaurant(Restaurant restaurant) {
-        // here you can do some validations etc before saving the user
         return restaurantRepository.save(restaurant);
     }
 
-    Restaurant addFoodCategory(FoodCategory foodCategory, Restaurant restaurant) {
+    public Restaurant addFoodCategory(FoodCategory foodCategory, Restaurant restaurant) {
         List<FoodCategory> foodCategories = restaurant.getFoodCategories();
         foodCategories.add(foodCategory);
         foodCategory.setRestaurant(restaurant);
@@ -28,12 +26,11 @@ public class RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
-
-    List<Restaurant> getAllRestaurants() {
+    public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
 
-    Restaurant getRestaurantById(long restaurantId) {
+    public Restaurant getRestaurantById(long restaurantId) {
         return restaurantRepository.findOne(restaurantId);
     }
 }

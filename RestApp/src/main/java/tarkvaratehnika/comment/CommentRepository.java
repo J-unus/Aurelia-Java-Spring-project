@@ -1,4 +1,4 @@
-package tarkvaratehnika.user;
+package tarkvaratehnika.comment;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface CommentRepository extends CrudRepository<Comment, Long> {
     @Override
-    public List<User> findAll();
+    public List<Comment> findAll();
 }
+

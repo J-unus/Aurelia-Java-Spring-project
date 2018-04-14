@@ -15,13 +15,6 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @RequestMapping(value="/restaurants/add", method=RequestMethod.POST,
-            consumes = "application/json")
-    public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
-        return restaurantService.addRestaurant(restaurant);
-    }
-
-
     @RequestMapping(value="/restaurants", method=RequestMethod.GET)
     public List<Restaurant> getAllRestaurants() {
         return restaurantService.getAllRestaurants();

@@ -18,7 +18,7 @@ public class FoodCategoryServiceTest {
     @Before
     public void setUp() throws Exception {
         repository = mock(FoodCategoryRepository.class);
-        service = new  FoodCategoryService(repository);
+        service = new FoodCategoryService(repository);
     }
 
     @Test
@@ -66,5 +66,4 @@ public class FoodCategoryServiceTest {
         service.getFoodCategoryById(1L);
         verify(repository).findOne(1L);
     }
-
 }

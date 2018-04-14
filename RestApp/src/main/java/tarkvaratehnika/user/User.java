@@ -2,8 +2,10 @@ package tarkvaratehnika.user;
 
 import lombok.Getter;
 import lombok.Setter;
-
+import tarkvaratehnika.comment.Comment;
+import tarkvaratehnika.foodLike.FoodLike;
 import tarkvaratehnika.restaurant.Restaurant;
+import tarkvaratehnika.restaurantLike.RestaurantLike;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,32 +16,22 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
-    long id;
-    String userName;
-    String password;
-    String email;
-    String firstName;
-    String lastName;
-    /*
-    Set<FoodLike> foodLikes;
-    */
+    private long id;
+    private String userName;
+    private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
-    List<Restaurant> restaurants;
+    private List<Restaurant> restaurants;
 
-    /*
-    @OneToMany(mappedBy="user")
-    RestaurantLikes restaurantLikes;
-    */
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private List<FoodLike> foodLikes;
 
-    /*
-    @OneToMany(mappedBy = "user")
-    public Set<FoodLike> getFoodLikes() {
-        return foodLikes;
-    }
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private List<RestaurantLike> restaurantLikes;
 
-    public void setFoodLikes(Set<FoodLike> foodLikes) {
-        this.foodLikes = foodLikes;
-    }
-    */
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private List<Comment> comments;
 }

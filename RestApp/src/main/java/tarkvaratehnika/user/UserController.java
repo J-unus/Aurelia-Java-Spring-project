@@ -6,7 +6,6 @@ import tarkvaratehnika.restaurant.Restaurant;
 
 import java.util.List;
 
-
 @RestController
 public class UserController {
 
