@@ -26,9 +26,9 @@ public class Food {
     @ManyToOne()
     private FoodCategory foodCategory;
 
-    @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL)
     private List<FoodLike> foodLikes;
 
-    @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL)
     private List<Comment> comments;
 }

@@ -33,4 +33,12 @@ public class RestaurantService {
     public Restaurant getRestaurantById(long restaurantId) {
         return restaurantRepository.findOne(restaurantId);
     }
+
+    public Restaurant updateRestaurantById(Restaurant restaurant, long restaurantId) {
+        return null;
+    }
+
+    public void deleteRestaurantById(long restaurantId) {
+        restaurantRepository.delete(restaurantId);
+    }
 }

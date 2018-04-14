@@ -20,21 +20,21 @@ public class CommentController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(value="/comment/add", method= RequestMethod.POST,
+    @RequestMapping(value = "/comment/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Comment addComment(@RequestBody Comment comment,
-                                @RequestParam(value="user_id") long userId,
-                                @RequestParam(value="food_id") long foodId) {
+                              @RequestParam(value = "user_id") long userId,
+                              @RequestParam(value = "food_id") long foodId) {
         return commentService.addComment(comment, userService.getUserById(userId), foodService.getFoodById(foodId));
     }
 
-    @RequestMapping(value="/comments", method=RequestMethod.GET)
+    @RequestMapping(value = "/comments", method = RequestMethod.GET)
     public List<Comment> getAllComments() {
         return commentService.getAllComments();
     }
 
-    @RequestMapping(value = "/comments/{id}", method=RequestMethod.GET)
+    @RequestMapping(value = "/comments/{id}", method = RequestMethod.GET)
     public Comment getComment(@PathVariable("id") long commentId) {
         return commentService.getCommentById(commentId);
     }

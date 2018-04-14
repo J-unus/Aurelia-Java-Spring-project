@@ -1,6 +1,8 @@
 package tarkvaratehnika.food;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(value="/foods", method=RequestMethod.GET)
+    @RequestMapping(value = "/foods", method = RequestMethod.GET)
     public List<Food> getAllFoods() {
         return foodService.getAllFoods();
     }

@@ -20,21 +20,21 @@ public class FoodLikeController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(value="/foodLike/add", method= RequestMethod.POST,
+    @RequestMapping(value = "/foodLike/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public FoodLike addFoodLike(@RequestBody FoodLike foodLike,
-                                @RequestParam(value="user_id") long userId,
-                                @RequestParam(value="food_id") long foodId) {
+                                @RequestParam(value = "user_id") long userId,
+                                @RequestParam(value = "food_id") long foodId) {
         return foodLikeService.addFoodLike(foodLike, userService.getUserById(userId), foodService.getFoodById(foodId));
     }
 
-    @RequestMapping(value="/foodLikes", method=RequestMethod.GET)
+    @RequestMapping(value = "/foodLikes", method = RequestMethod.GET)
     public List<FoodLike> getAllFoodLikes() {
         return foodLikeService.getAllFoodLikes();
     }
 
-    @RequestMapping(value = "/foodLikes/{id}", method=RequestMethod.GET)
+    @RequestMapping(value = "/foodLikes/{id}", method = RequestMethod.GET)
     public FoodLike getFoodLike(@PathVariable("id") long foodLikeId) {
         return foodLikeService.getFoodLikeById(foodLikeId);
     }

@@ -15,25 +15,25 @@ public class FoodCategoryController {
         this.foodCategoryService = foodCategoryService;
     }
 
-    @RequestMapping(value="/foodCategories/add", method=RequestMethod.POST,
+    @RequestMapping(value = "/foodCategories/add", method = RequestMethod.POST,
             consumes = "application/json")
     public FoodCategory addFoodCategory(@RequestBody FoodCategory foodCategory) {
         return foodCategoryService.addFoodCategory(foodCategory);
     }
 
 
-    @RequestMapping(value="/foodCategories", method=RequestMethod.GET)
+    @RequestMapping(value = "/foodCategories", method = RequestMethod.GET)
     public List<FoodCategory> getAllFoodCategories() {
         return foodCategoryService.getAllFoodCategories();
     }
 
-    @RequestMapping(value = "/foodCategories/{id}", method=RequestMethod.GET)
+    @RequestMapping(value = "/foodCategories/{id}", method = RequestMethod.GET)
     public FoodCategory getFoodCategory(@PathVariable("id") long foodCategoryId) {
         return foodCategoryService.getFoodCategoryById(foodCategoryId);
     }
 
 
-    @RequestMapping(value = "/foodCategories/addFood/{id}", method=RequestMethod.POST,consumes = "application/json")
+    @RequestMapping(value = "/foodCategories/addFood/{id}", method = RequestMethod.POST, consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public FoodCategory addFood(@RequestBody Food food, @PathVariable("id") long foodCategoryId) {
         return foodCategoryService.addFood(food, foodCategoryService.getFoodCategoryById(foodCategoryId));

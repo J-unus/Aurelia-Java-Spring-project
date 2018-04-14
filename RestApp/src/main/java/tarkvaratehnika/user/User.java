@@ -23,15 +23,15 @@ public class User {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Restaurant> restaurants;
 
-    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<FoodLike> foodLikes;
 
-    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<RestaurantLike> restaurantLikes;
 
-    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
 }

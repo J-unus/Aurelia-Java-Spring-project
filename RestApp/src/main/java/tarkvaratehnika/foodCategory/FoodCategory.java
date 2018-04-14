@@ -23,6 +23,6 @@ public class FoodCategory {
     @ManyToOne()
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy="foodCategory",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "foodCategory", cascade = CascadeType.ALL)
     private List<Food> foods;
 }
