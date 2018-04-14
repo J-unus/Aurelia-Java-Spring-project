@@ -20,7 +20,7 @@ public class CommentController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(value = "/comment/add", method = RequestMethod.POST,
+    @RequestMapping(value = "/comments/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Comment addComment(@RequestBody Comment comment,

@@ -20,7 +20,7 @@ public class FoodLikeController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(value = "/foodLike/add", method = RequestMethod.POST,
+    @RequestMapping(value = "/foodLikes/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public FoodLike addFoodLike(@RequestBody FoodLike foodLike,

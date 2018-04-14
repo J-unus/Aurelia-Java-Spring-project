@@ -21,7 +21,7 @@ public class RestaurantLikeController {
         this.restaurantService = restaurantService;
     }
 
-    @RequestMapping(value = "/restaurantLike/add", method = RequestMethod.POST,
+    @RequestMapping(value = "/restaurantLikes/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public RestaurantLike addRestaurantLike(@RequestBody RestaurantLike restaurantLike,
