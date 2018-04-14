@@ -28,9 +28,9 @@ public class Restaurant {
     @ManyToOne()
     private User user;
 
-    @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<FoodCategory> foodCategories;
 
-    @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<RestaurantLike> restaurantLikes;
 }

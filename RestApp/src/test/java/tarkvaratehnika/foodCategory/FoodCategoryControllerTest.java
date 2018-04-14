@@ -35,7 +35,7 @@ public class FoodCategoryControllerTest {
     private FoodCategoryController foodCategoryController;
 
     @Test
-    public void addFoodCategory() throws Exception {
+    public void addFoodCategory() {
     }
 
     @Test

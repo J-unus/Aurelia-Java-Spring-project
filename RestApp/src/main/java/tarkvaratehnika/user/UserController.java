@@ -15,26 +15,28 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value="/users/add", method=RequestMethod.POST,
+    @RequestMapping(value = "/users/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public User addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
 
-    @RequestMapping(value="/users", method=RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(value = "/users/{id}", method=RequestMethod.GET)
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable("id") long userId) {
         return userService.getUserById(userId);
     }
 
-    @RequestMapping(value = "/users/addRestaurant/{id}", method=RequestMethod.POST,consumes = "application/json")
+    @RequestMapping(value = "/users/addRestaurant/{id}", method = RequestMethod.POST,
+            consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public User addRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
+    public User addRestaurant(@RequestBody Restaurant restaurant,
+                              @PathVariable("id") long userId) {
         return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
 }
