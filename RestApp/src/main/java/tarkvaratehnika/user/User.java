@@ -15,12 +15,12 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
-    long id;
-    String userName;
-    String password;
-    String email;
-    String firstName;
-    String lastName;
+    private long id;
+    private String userName;
+    private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
     List<Restaurant> restaurants;

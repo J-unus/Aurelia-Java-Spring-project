@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class RestaurantService {
 
-
     private RestaurantRepository restaurantRepository;
 
     public RestaurantService(RestaurantRepository restaurantRepository) {

@@ -32,6 +32,6 @@ public class Restaurant {
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
     List<FoodCategory> foodCategories;
 
-    @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
     List<RestaurantLike> restaurantLikes;
 }

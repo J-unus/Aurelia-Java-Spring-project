@@ -45,11 +45,11 @@ public class FoodLikeService {
         return null;
     }
 
-    List<FoodLike> getAllFoodLikes() {
+    public List<FoodLike> getAllFoodLikes() {
         return foodLikeRepository.findAll();
     }
 
-    FoodLike getFoodLikeById(long foodLikeId) {
+    public FoodLike getFoodLikeById(long foodLikeId) {
         return foodLikeRepository.findOne(foodLikeId);
     }
 }

@@ -20,7 +20,7 @@ public class FoodCategoryService {
         return foodCategoryRepository.save(foodCategory);
     }
 
-    FoodCategory addFood(Food food, FoodCategory foodCategory) {
+    public FoodCategory addFood(Food food, FoodCategory foodCategory) {
         List<Food> foods = foodCategory.getFoods();
         foods.add(food);
         food.setFoodCategory(foodCategory);
@@ -28,11 +28,11 @@ public class FoodCategoryService {
         return foodCategoryRepository.save(foodCategory);
     }
 
-    List<FoodCategory> getAllFoodCategories() {
+    public List<FoodCategory> getAllFoodCategories() {
         return foodCategoryRepository.findAll();
     }
 
-    FoodCategory getFoodCategoryById(long foodCategoryId) {
+    public FoodCategory getFoodCategoryById(long foodCategoryId) {
         return foodCategoryRepository.findOne(foodCategoryId);
     }
 }

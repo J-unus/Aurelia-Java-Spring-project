@@ -45,11 +45,11 @@ public class RestaurantLikeService {
         return null;
     }
 
-    List<RestaurantLike> getAllRestaurantLikes() {
+    public List<RestaurantLike> getAllRestaurantLikes() {
         return restaurantLikeRepository.findAll();
     }
 
-    RestaurantLike getRestaurantLikeById(long restaurantLikeId) {
+    public RestaurantLike getRestaurantLikeById(long restaurantLikeId) {
         return restaurantLikeRepository.findOne(restaurantLikeId);
     }
 }

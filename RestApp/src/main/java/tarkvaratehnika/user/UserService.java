@@ -19,7 +19,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    User addRestaurant(User user, Restaurant restaurant) {
+    public User addRestaurant(User user, Restaurant restaurant) {
         List<Restaurant> restaurants = user.getRestaurants();
         restaurants.add(restaurant);
         restaurant.setUser(user);
