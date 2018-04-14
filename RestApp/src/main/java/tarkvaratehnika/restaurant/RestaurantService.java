@@ -15,7 +15,6 @@ public class RestaurantService {
     }
 
     public Restaurant addRestaurant(Restaurant restaurant) {
-        // here you can do some validations etc before saving the user
         return restaurantRepository.save(restaurant);
     }
 
@@ -26,7 +25,6 @@ public class RestaurantService {
         restaurant.setFoodCategories(foodCategories);
         return restaurantRepository.save(restaurant);
     }
-
 
     public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();

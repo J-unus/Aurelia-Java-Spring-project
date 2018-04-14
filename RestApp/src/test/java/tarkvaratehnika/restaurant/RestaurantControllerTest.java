@@ -69,5 +69,4 @@ public class RestaurantControllerTest {
                         .content(jsonFoodCategory)).andReturn().getResponse();
         assertEquals(response.getStatus(), HttpStatus.CREATED.value());
     }
-
 }

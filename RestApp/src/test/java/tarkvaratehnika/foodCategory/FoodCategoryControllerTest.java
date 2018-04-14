@@ -24,8 +24,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(FoodCategoryController.class)
 public class FoodCategoryControllerTest {
@@ -75,5 +73,4 @@ public class FoodCategoryControllerTest {
                         .content(jsonFood)).andReturn().getResponse();
         assertEquals(response.getStatus(), HttpStatus.CREATED.value());
     }
-
 }

@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class FoodCategoryService {
 
-
     private FoodCategoryRepository foodCategoryRepository;
 
     public FoodCategoryService(FoodCategoryRepository foodCategoryRepository) {
@@ -16,7 +15,6 @@ public class FoodCategoryService {
     }
 
     public FoodCategory addFoodCategory(FoodCategory foodCategory) {
-        // here you can do some validations etc before saving the user
         return foodCategoryRepository.save(foodCategory);
     }
 

@@ -19,5 +19,4 @@ public class FoodService {
     public Food getFoodById(long foodId) {
         return foodRepository.findOne(foodId);
     }
-
 }

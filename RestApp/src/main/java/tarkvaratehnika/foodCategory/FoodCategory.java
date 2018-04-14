@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-
 public class FoodCategory {
 
     @Id
@@ -26,5 +25,4 @@ public class FoodCategory {
 
     @OneToMany(mappedBy="foodCategory",cascade=CascadeType.ALL)
     private List<Food> foods;
-
 }

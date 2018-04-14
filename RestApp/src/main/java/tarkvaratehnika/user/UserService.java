@@ -5,7 +5,6 @@ import tarkvaratehnika.restaurant.Restaurant;
 
 import java.util.List;
 
-
 @Service
 public class UserService {
 

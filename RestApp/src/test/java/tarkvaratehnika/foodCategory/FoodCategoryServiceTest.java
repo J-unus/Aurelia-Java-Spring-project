@@ -66,5 +66,4 @@ public class FoodCategoryServiceTest {
         service.getFoodCategoryById(1L);
         verify(repository).findOne(1L);
     }
-
 }
