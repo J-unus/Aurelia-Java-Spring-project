@@ -32,9 +32,11 @@ public class UserController {
         return userService.getUserById(userId);
     }
 
-    @RequestMapping(value = "/users/addRestaurant/{id}", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/users/addRestaurant/{id}", method = RequestMethod.POST,
+            consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public User addRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long userId) {
+    public User addRestaurant(@RequestBody Restaurant restaurant,
+                              @PathVariable("id") long userId) {
         return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
 }

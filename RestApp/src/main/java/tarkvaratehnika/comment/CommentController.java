@@ -38,4 +38,15 @@ public class CommentController {
     public Comment getComment(@PathVariable("id") long commentId) {
         return commentService.getCommentById(commentId);
     }
+
+    @RequestMapping(value = "/comments/{id}", method = RequestMethod.PUT,
+            consumes = "application/json")
+    public Comment updateComment(@RequestBody Comment comment, @PathVariable("id") long commentId) {
+        return commentService.updateCommentById(comment, commentId);
+    }
+
+    @RequestMapping(value = "/comments/{id}", method = RequestMethod.DELETE)
+    public void deleteComment(@PathVariable("id") long commentId) {
+        commentService.deleteCommentById(commentId);
+    }
 }

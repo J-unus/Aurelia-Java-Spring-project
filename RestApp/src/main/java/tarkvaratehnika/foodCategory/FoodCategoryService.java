@@ -33,4 +33,14 @@ public class FoodCategoryService {
     public FoodCategory getFoodCategoryById(long foodCategoryId) {
         return foodCategoryRepository.findOne(foodCategoryId);
     }
+
+    public FoodCategory updateFoodCategoryById(FoodCategory newFoodCategory, long foodCategoryId) {
+        FoodCategory oldFoodCategory = foodCategoryRepository.findOne(foodCategoryId);
+        oldFoodCategory.setCategoryName(newFoodCategory.getCategoryName());
+        return foodCategoryRepository.save(oldFoodCategory);
+    }
+
+    public void deleteFoodCategoryById(long foodCategoryId) {
+        foodCategoryRepository.delete(foodCategoryId);
+    }
 }

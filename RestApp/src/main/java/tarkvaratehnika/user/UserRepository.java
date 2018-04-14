@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     @Override
-    public List<User> findAll();
+    List<User> findAll();
 }

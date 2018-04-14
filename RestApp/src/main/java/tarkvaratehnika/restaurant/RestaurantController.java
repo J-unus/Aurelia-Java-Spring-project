@@ -25,19 +25,23 @@ public class RestaurantController {
         return restaurantService.getRestaurantById(restaurantId);
     }
 
+    @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.PUT,
+            consumes = "application/json")
+    public Restaurant updateRestaurant(@RequestBody Restaurant restaurant,
+                                       @PathVariable("id") long restaurantId) {
+        return restaurantService.updateRestaurantById(restaurant, restaurantId);
+    }
+
     @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.DELETE)
     public void deleteRestaurant(@PathVariable("id") long restaurantId) {
         restaurantService.deleteRestaurantById(restaurantId);
     }
 
-    @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.PUT, consumes = "application/json")
-    public Restaurant updateRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long restaurantId) {
-        return restaurantService.updateRestaurantById(restaurant, restaurantId);
-    }
-
-    @RequestMapping(value = "/restaurants/addFoodCategory/{id}", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/restaurants/addFoodCategory/{id}", method = RequestMethod.POST,
+            consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Restaurant addFoodCategory(@RequestBody FoodCategory foodCategory, @PathVariable("id") long restaurantId) {
+    public Restaurant addFoodCategory(@RequestBody FoodCategory foodCategory,
+                                      @PathVariable("id") long restaurantId) {
         return restaurantService.addFoodCategory(foodCategory, restaurantService.getRestaurantById(restaurantId));
     }
 }

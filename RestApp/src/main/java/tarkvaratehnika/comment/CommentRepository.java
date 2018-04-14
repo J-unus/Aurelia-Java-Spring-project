@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, Long> {
     @Override
-    public List<Comment> findAll();
+    List<Comment> findAll();
 }
 

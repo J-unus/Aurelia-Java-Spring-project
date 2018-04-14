@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface FoodLikeRepository extends CrudRepository<FoodLike, Long> {
     @Override
-    public List<FoodLike> findAll();
+    List<FoodLike> findAll();
 }

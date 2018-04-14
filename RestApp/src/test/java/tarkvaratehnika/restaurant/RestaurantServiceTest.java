@@ -17,20 +17,20 @@ public class RestaurantServiceTest {
     private RestaurantService service;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         repository = mock(RestaurantRepository.class);
         service = new RestaurantService(repository);
     }
 
     @Test
-    public void addRestaurant() throws Exception {
+    public void addRestaurant() {
         Restaurant restaurant = new Restaurant();
         service.addRestaurant(restaurant);
         verify(repository).save(restaurant);
     }
 
     @Test
-    public void addFoodCategory() throws Exception {
+    public void addFoodCategory() {
         Restaurant restaurant = new Restaurant();
         FoodCategory foodCategory1 = new FoodCategory();
         FoodCategory foodCategory2 = new FoodCategory();
@@ -44,7 +44,7 @@ public class RestaurantServiceTest {
     }
 
     @Test
-    public void getAllRestaurants() throws Exception {
+    public void getAllRestaurants() {
         User user = new User();
 
         Restaurant restaurant1 = new Restaurant();
@@ -64,7 +64,7 @@ public class RestaurantServiceTest {
     }
 
     @Test
-    public void getRestaurantById() throws Exception {
+    public void getRestaurantById() {
         Restaurant restaurant = new Restaurant();
         restaurant.setId(1L);
 

@@ -40,4 +40,14 @@ public class CommentService {
     public Comment getCommentById(long commentId) {
         return commentRepository.findOne(commentId);
     }
+
+    public Comment updateCommentById(Comment newComment, long commentId) {
+        Comment oldComment = commentRepository.findOne(commentId);
+        oldComment.setContent(newComment.getContent());
+        return commentRepository.save(oldComment);
+    }
+
+    public void deleteCommentById(long commentId) {
+        commentRepository.delete(commentId);
+    }
 }

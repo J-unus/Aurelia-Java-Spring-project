@@ -14,7 +14,8 @@ public class RestaurantLikeController {
     private RestaurantService restaurantService;
     private RestaurantLikeService restaurantLikeService;
 
-    public RestaurantLikeController(RestaurantLikeService restaurantLikeService, UserService userService, RestaurantService restaurantService) {
+    public RestaurantLikeController(RestaurantLikeService restaurantLikeService, UserService userService,
+                                    RestaurantService restaurantService) {
         this.restaurantLikeService = restaurantLikeService;
         this.userService = userService;
         this.restaurantService = restaurantService;
@@ -26,7 +27,8 @@ public class RestaurantLikeController {
     public RestaurantLike addRestaurantLike(@RequestBody RestaurantLike restaurantLike,
                                             @RequestParam(value = "user_id") long userId,
                                             @RequestParam(value = "restaurant_id") long restaurantId) {
-        return restaurantLikeService.addRestaurantLike(restaurantLike, userService.getUserById(userId), restaurantService.getRestaurantById(restaurantId));
+        return restaurantLikeService.addRestaurantLike(restaurantLike, userService.getUserById(userId),
+                restaurantService.getRestaurantById(restaurantId));
     }
 
     @RequestMapping(value = "/restaurantLikes", method = RequestMethod.GET)

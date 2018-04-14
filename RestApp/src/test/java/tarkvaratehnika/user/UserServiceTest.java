@@ -15,20 +15,20 @@ public class UserServiceTest {
     private UserService service;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         repository = mock(UserRepository.class);
         service = new UserService(repository);
     }
 
     @Test
-    public void addUser() throws Exception {
+    public void addUser() {
         User user = new User();
         service.addUser(user);
         verify(repository).save(user);
     }
 
     @Test
-    public void addRestaurant() throws Exception {
+    public void addRestaurant() {
         User user = new User();
         Restaurant restaurant1 = new Restaurant();
         Restaurant restaurant2 = new Restaurant();
@@ -42,7 +42,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getAllUsers() throws Exception {
+    public void getAllUsers() {
         User u1 = new User();
         u1.setId(1L);
         service.addUser(u1);
@@ -60,7 +60,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getUserById() throws Exception {
+    public void getUserById() {
         User user = new User();
         user.setId(1L);
         service.addUser(user);
