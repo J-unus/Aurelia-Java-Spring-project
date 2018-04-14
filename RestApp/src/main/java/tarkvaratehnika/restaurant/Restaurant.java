@@ -17,21 +17,21 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue
-    long id;
-    String name;
-    String openTime;
-    String closeTime;
-    String phoneNumber;
-    String location;
-    String description;
+    private long id;
+    private String name;
+    private String openTime;
+    private String closeTime;
+    private String phoneNumber;
+    private String location;
+    private String description;
 
     @JsonBackReference
     @ManyToOne()
-    User user;
+    private User user;
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
-    List<FoodCategory> foodCategories;
+    private List<FoodCategory> foodCategories;
 
     @OneToMany(mappedBy="restaurant",cascade=CascadeType.ALL)
-    List<RestaurantLike> restaurantLikes;
+    private List<RestaurantLike> restaurantLikes;
 }

@@ -16,15 +16,15 @@ import java.util.List;
 public class Food {
     @Id
     @GeneratedValue
-    long id;
-    String description;
-    String image;
-    double price;
+    private long id;
+    private String description;
+    private String image;
+    private double price;
 
     @JsonBackReference
     @ManyToOne()
-    FoodCategory foodCategory;
+    private FoodCategory foodCategory;
 
     @OneToMany(mappedBy="food",cascade=CascadeType.ALL)
-    List<FoodLike> foodLikes;
+    private List<FoodLike> foodLikes;
 }

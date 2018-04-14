@@ -23,11 +23,11 @@ public class User {
     private String lastName;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
-    List<Restaurant> restaurants;
+    private List<Restaurant> restaurants;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
-    List<FoodLike> foodLikes;
+    private List<FoodLike> foodLikes;
 
     @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
-    List<RestaurantLike> restaurantLikes;
+    private List<RestaurantLike> restaurantLikes;
 }

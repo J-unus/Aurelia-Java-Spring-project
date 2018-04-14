@@ -18,14 +18,14 @@ import javax.persistence.ManyToOne;
 public class FoodLike {
     @Id
     @GeneratedValue
-    long id;
-    boolean rating;
+    private long id;
+    private boolean rating;
 
     @JsonIgnore
     @ManyToOne()
-    User user;
+    private User user;
 
     @JsonIgnore
     @ManyToOne()
-    Food food;
+    private Food food;
 }
