@@ -30,7 +30,7 @@ public class FoodController {
     }
 
     @RequestMapping(value = "/foods/{id}", method = RequestMethod.DELETE)
-    public void deleteFood(@PathVariable("id") long foodId) {
-        foodService.deleteFoodById(foodId);
+    public String deleteFood(@PathVariable("id") long foodId) {
+        return foodService.deleteFoodById(foodId);
     }
 }

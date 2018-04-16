@@ -29,7 +29,8 @@ public class RestaurantLikeService {
                     restaurantLikeList.add(restaurantLike);
                     restaurantLike.setUser(user);
                     restaurantLike.setRestaurant(restaurant);
-                    return restaurantLikeRepository.save(restaurantLike);
+                    restaurantLikeRepository.save(restaurantLike);
+                    return restaurantLike;
                 }
                 flag = true;
                 break;
@@ -40,7 +41,8 @@ public class RestaurantLikeService {
             restaurantLikeList.add(restaurantLike);
             restaurantLike.setUser(user);
             restaurantLike.setRestaurant(restaurant);
-            return restaurantLikeRepository.save(restaurantLike);
+            restaurantLikeRepository.save(restaurantLike);
+            return restaurantLike;
         }
         return null;
     }

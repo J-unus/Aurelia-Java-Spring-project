@@ -39,8 +39,8 @@ public class FoodCategoryController {
     }
 
     @RequestMapping(value = "/foodCategories/{id}", method = RequestMethod.DELETE)
-    public void deleteFoodCategory(@PathVariable("id") long foodCategoryId) {
-        foodCategoryService.deleteFoodCategoryById(foodCategoryId);
+    public String deleteFoodCategory(@PathVariable("id") long foodCategoryId) {
+        return foodCategoryService.deleteFoodCategoryById(foodCategoryId);
     }
 
 

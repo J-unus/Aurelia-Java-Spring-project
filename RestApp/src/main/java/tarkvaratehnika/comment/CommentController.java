@@ -23,7 +23,7 @@ public class CommentController {
     @RequestMapping(value = "/comments/add", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Comment addComment(@RequestBody Comment comment,
+    public String addComment(@RequestBody Comment comment,
                               @RequestParam(value = "user_id") long userId,
                               @RequestParam(value = "food_id") long foodId) {
         return commentService.addComment(comment, userService.getUserById(userId), foodService.getFoodById(foodId));
@@ -46,7 +46,7 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/comments/{id}", method = RequestMethod.DELETE)
-    public void deleteComment(@PathVariable("id") long commentId) {
-        commentService.deleteCommentById(commentId);
+    public String deleteComment(@PathVariable("id") long commentId) {
+        return commentService.deleteCommentById(commentId);
     }
 }
