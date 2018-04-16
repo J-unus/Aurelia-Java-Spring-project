@@ -26,10 +26,12 @@ public class FoodService {
         oldFood.setDescription(newFood.getDescription());
         oldFood.setImage(newFood.getImage());
         oldFood.setPrice(newFood.getPrice());
-        return foodRepository.save(oldFood);
+        foodRepository.save(oldFood);
+        return oldFood;
     }
 
-    public void deleteFoodById(long foodId) {
+    public String deleteFoodById(long foodId) {
         foodRepository.delete(foodId);
+        return "{\"deleted\": true}";
     }
 }

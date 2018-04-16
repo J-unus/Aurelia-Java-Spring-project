@@ -29,7 +29,8 @@ public class FoodLikeService {
                     foodLikeList.add(foodLike);
                     foodLike.setUser(user);
                     foodLike.setFood(food);
-                    return foodLikeRepository.save(foodLike);
+                    foodLikeRepository.save(foodLike);
+                    return foodLike;
                 }
                 flag = true;
                 break;
@@ -40,7 +41,8 @@ public class FoodLikeService {
             foodLikeList.add(foodLike);
             foodLike.setUser(user);
             foodLike.setFood(food);
-            return foodLikeRepository.save(foodLike);
+            foodLikeRepository.save(foodLike);
+            return foodLike;
         }
         return null;
     }

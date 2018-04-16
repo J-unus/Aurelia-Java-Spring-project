@@ -15,7 +15,8 @@ public class FoodCategoryService {
     }
 
     public FoodCategory addFoodCategory(FoodCategory foodCategory) {
-        return foodCategoryRepository.save(foodCategory);
+        foodCategoryRepository.save(foodCategory);
+        return foodCategory;
     }
 
     public FoodCategory addFood(Food food, FoodCategory foodCategory) {
@@ -23,7 +24,8 @@ public class FoodCategoryService {
         foods.add(food);
         food.setFoodCategory(foodCategory);
         foodCategory.setFoods(foods);
-        return foodCategoryRepository.save(foodCategory);
+        foodCategoryRepository.save(foodCategory);
+        return foodCategory;
     }
 
     public List<FoodCategory> getAllFoodCategories() {
@@ -37,10 +39,12 @@ public class FoodCategoryService {
     public FoodCategory updateFoodCategoryById(FoodCategory newFoodCategory, long foodCategoryId) {
         FoodCategory oldFoodCategory = foodCategoryRepository.findOne(foodCategoryId);
         oldFoodCategory.setCategoryName(newFoodCategory.getCategoryName());
-        return foodCategoryRepository.save(oldFoodCategory);
+        foodCategoryRepository.save(oldFoodCategory);
+        return oldFoodCategory;
     }
 
-    public void deleteFoodCategoryById(long foodCategoryId) {
+    public String deleteFoodCategoryById(long foodCategoryId) {
         foodCategoryRepository.delete(foodCategoryId);
+        return "{\"deleted\": true}";
     }
 }

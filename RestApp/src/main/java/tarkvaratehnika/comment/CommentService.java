@@ -30,7 +30,8 @@ public class CommentService {
         foodCommentList.add(comment);
         comment.setUser(user);
         comment.setFood(food);
-        return commentRepository.save(comment);
+        commentRepository.save(comment);
+        return comment;
     }
 
     public List<Comment> getAllComments() {
@@ -44,10 +45,12 @@ public class CommentService {
     public Comment updateCommentById(Comment newComment, long commentId) {
         Comment oldComment = commentRepository.findOne(commentId);
         oldComment.setContent(newComment.getContent());
-        return commentRepository.save(oldComment);
+        commentRepository.save(oldComment);
+        return oldComment;
     }
 
-    public void deleteCommentById(long commentId) {
+    public String deleteCommentById(long commentId) {
         commentRepository.delete(commentId);
+        return "{\"deleted\": true}";
     }
 }

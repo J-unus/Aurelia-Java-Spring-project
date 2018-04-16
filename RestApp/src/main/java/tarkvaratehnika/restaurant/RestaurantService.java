@@ -15,7 +15,8 @@ public class RestaurantService {
     }
 
     public Restaurant addRestaurant(Restaurant restaurant) {
-        return restaurantRepository.save(restaurant);
+        restaurantRepository.save(restaurant);
+        return restaurant;
     }
 
     public Restaurant addFoodCategory(FoodCategory foodCategory, Restaurant restaurant) {
@@ -23,7 +24,8 @@ public class RestaurantService {
         foodCategories.add(foodCategory);
         foodCategory.setRestaurant(restaurant);
         restaurant.setFoodCategories(foodCategories);
-        return restaurantRepository.save(restaurant);
+        restaurantRepository.save(restaurant);
+        return restaurant;
     }
 
     public List<Restaurant> getAllRestaurants() {
@@ -42,10 +44,12 @@ public class RestaurantService {
         oldRestaurant.setPhoneNumber(newRestaurant.getPhoneNumber());
         oldRestaurant.setLocation(newRestaurant.getLocation());
         oldRestaurant.setDescription(newRestaurant.getDescription());
-        return restaurantRepository.save(oldRestaurant);
+        restaurantRepository.save(oldRestaurant);
+        return oldRestaurant;
     }
 
-    public void deleteRestaurantById(long restaurantId) {
+    public String deleteRestaurantById(long restaurantId) {
         restaurantRepository.delete(restaurantId);
+        return "{\"deleted\": true}";
     }
 }

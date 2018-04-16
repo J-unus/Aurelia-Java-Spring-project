@@ -46,7 +46,7 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/comments/{id}", method = RequestMethod.DELETE)
-    public void deleteComment(@PathVariable("id") long commentId) {
-        commentService.deleteCommentById(commentId);
+    public String deleteComment(@PathVariable("id") long commentId) {
+        return commentService.deleteCommentById(commentId);
     }
 }
