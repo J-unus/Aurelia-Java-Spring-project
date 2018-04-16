@@ -33,7 +33,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.DELETE)
-    public String deleteRestaurant(@PathVariable("id") long restaurantId){
+    public String deleteRestaurant(@PathVariable("id") long restaurantId) {
         return restaurantService.deleteRestaurantById(restaurantId);
     }
 
