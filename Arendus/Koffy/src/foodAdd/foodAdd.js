@@ -22,30 +22,48 @@ export class foodAdd {
       .then(response => response.json())
       .then(restaurants => this.restaurantList = restaurants);
   }
-
+  
   addCategory() {
     let client = new HttpClient();
     client.fetch('http://localhost:8080/restaurants/addFoodCategory/1', {
         'method': "POST",
         'body': json(this.foodCategoryData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log("Server saatis " + data.name);
       });
+    client.fetch('http://localhost:8080/foodCategories')
+      .then(response => response.json())
+      .then(foodCategories => this.foodCategoryList = foodCategories);
 
     console.log("Method executed!")
 
-    var toAdd = "<div class='row'" +
-      "repeat.for='food of foodList'>" +
+    var toAdd = "<div class='row'>" +
       "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
       "<div class='col-sm-12 col-xs-12 text-center'>" +
       this.foodCategoryData.categoryName +
+      "<button type='button' id='122' class='categoryBtn btn btn-danger pull-right' " +
+      "click.delegate='deleteCategory(foodCategory.name)'>" +
+      "Delete" +
+      "</button>" +
       "</div>" +
       "</div>" +
       "</div>";
 
     $(".categories").prepend($(toAdd).fadeIn('slow'));
+    $(".categoryBtn").bind( "click", function() {
+    var id = $(".categoryBtn").attr('id')
+    console.log("delete")
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/foodCategories/' + id)
+      .then(response => response.json())
+      .then(foodCategory => this.foodCategory = foodCategory);
+
+    client.fetch('http://localhost:8080/foodCategories/'+ id, {
+        'method': "DELETE",
+        'body': json(this.foodCategory)
+      });
+
+    console.log("Method executed!")
+    });
 
   }
 
@@ -79,6 +97,7 @@ export class foodAdd {
   }
 
   deleteCategory(id) {
+    console.log("delete")
     let client = new HttpClient();
 
     client.fetch('http://localhost:8080/foodCategories/' + id)
