@@ -15,7 +15,7 @@ public class CommentService {
         this.commentRepository = commentRepository;
     }
 
-    public String addComment(Comment comment, User user, Food food) {
+    public Comment addComment(Comment comment, User user, Food food) {
         List<Comment> userCommentList = user.getComments();
         List<Comment> foodCommentList = food.getComments();
         List<Comment> repoComments = commentRepository.findAll();
@@ -23,7 +23,7 @@ public class CommentService {
         for (int i = 0; i < repoComments.size(); i++) {
             Comment repoComment = repoComments.get(i);
             if (repoComment.getUser() == user && repoComment.getFood() == food) {
-                return "User already commented.";
+                return null;
             }
         }
         userCommentList.add(comment);
@@ -31,7 +31,7 @@ public class CommentService {
         comment.setUser(user);
         comment.setFood(food);
         commentRepository.save(comment);
-        return comment.toString();
+        return comment;
     }
 
     public List<Comment> getAllComments() {
