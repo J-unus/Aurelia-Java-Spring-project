@@ -1,0 +1,129 @@
+<template>
+  <require from="./style.css"></require>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">Koffy</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/#/restaurantAdd/">Register restaurant</a>
+          </li>
+          <li class="active">
+            <a href="/#/foodAdd">Setting</a>
+          </li>
+          <li>
+            <a href="/#/home">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row col-md-4 col-md-offset-4 col-xs-12">
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#menuModal">Edit food categories</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#foodModal">Edit menu</button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="menuModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Menüü kategooriad</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <form id="categoryAddForm" submit.delegate="addCategory()">
+              <div class="col-md-12 col-xs-12 form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="categoryName">Category name:</label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" value.bind="foodCategoryData.categoryName" placeholder=" Enter category name">
+                  </div>
+                  <button type="submit" class="btn btn-success submit">
+                    <h3>ADD<h3></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="categories">
+            <div class="row" repeat.for="foodCategory of restaurantList.foodCategories">
+              <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+                <div class="col-sm-12 col-xs-12 text-center">
+                  ${foodCategory.categoryName}
+                  <button type="button" class="btn btn-danger pull-right" 
+                  click.delegate="deleteCategory(foodCategory.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="foodModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Menüü toidud</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <form id="foodAddForm" submit.delegate="addFood()">
+              <div class="col-md-12 col-xs-12 form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="foodAdd">Add item:</label>
+                  <div class="row col-md-10">
+                    <input type="text" class="form-control" id="foodDescription" name="foodDescription" value.bind="foodData.description" placeholder=" Enter food description">
+                    <input type="number" class="form-control" id="foodPrice" name="foodPrice" value.bind="foodData.price" placeholder=" Enter food price">
+                  </div>
+                  <div class="col-md-5 col-md-offset-4">
+                  <button type="submit" class="btn btn-success btn-block submit"><h3>ADD</h3></button>
+                </div>
+              </div>
+          </div>
+          </form>
+        </div>
+        <div class="food" repeat.for="foodCategory of restaurantList.foodCategories">
+          <div class="row" repeat.for="food of foodCategory.foods">
+            <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+              <div class="col-sm-10 col-xs-10 text-center">
+                ${food.description}
+              </div>
+              <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
+                ${food.price}
+                <span class="glyphicon glyphicon-euro"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
