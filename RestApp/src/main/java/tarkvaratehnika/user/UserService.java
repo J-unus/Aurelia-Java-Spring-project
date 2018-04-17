@@ -18,12 +18,13 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User addRestaurant(User user, Restaurant restaurant) {
+    public Restaurant addRestaurant(User user, Restaurant restaurant) {
         List<Restaurant> restaurants = user.getRestaurants();
         restaurants.add(restaurant);
         restaurant.setUser(user);
         user.setRestaurants(restaurants);
-        return userRepository.save(user);
+        userRepository.save(user);
+        return restaurant;
     }
 
     public List<User> getAllUsers() {

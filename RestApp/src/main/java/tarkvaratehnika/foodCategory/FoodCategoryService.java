@@ -19,13 +19,13 @@ public class FoodCategoryService {
         return foodCategory;
     }
 
-    public FoodCategory addFood(Food food, FoodCategory foodCategory) {
+    public Food addFood(Food food, FoodCategory foodCategory) {
         List<Food> foods = foodCategory.getFoods();
         foods.add(food);
         food.setFoodCategory(foodCategory);
         foodCategory.setFoods(foods);
         foodCategoryRepository.save(foodCategory);
-        return foodCategory;
+        return food;
     }
 
     public List<FoodCategory> getAllFoodCategories() {

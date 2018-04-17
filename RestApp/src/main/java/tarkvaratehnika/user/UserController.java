@@ -35,7 +35,7 @@ public class UserController {
     @RequestMapping(value = "/users/addRestaurant/{id}", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public User addRestaurant(@RequestBody Restaurant restaurant,
+    public Restaurant addRestaurant(@RequestBody Restaurant restaurant,
                               @PathVariable("id") long userId) {
         return userService.addRestaurant(userService.getUserById(userId), restaurant);
     }
