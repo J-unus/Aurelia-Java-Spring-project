@@ -40,7 +40,7 @@ public class RestaurantController {
     @RequestMapping(value = "/restaurants/addFoodCategory/{id}", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Restaurant addFoodCategory(@RequestBody FoodCategory foodCategory,
+    public FoodCategory addFoodCategory(@RequestBody FoodCategory foodCategory,
                                       @PathVariable("id") long restaurantId) {
         return restaurantService.addFoodCategory(foodCategory, restaurantService.getRestaurantById(restaurantId));
     }
