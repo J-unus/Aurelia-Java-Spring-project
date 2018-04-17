@@ -24,22 +24,33 @@ export class foodAdd {
   }
   
   addCategory() {
+    var toAdd = ""
     let client = new HttpClient();
     client.fetch('http://localhost:8080/restaurants/addFoodCategory/1', {
         'method': "POST",
         'body': json(this.foodCategoryData)
-      });
-    client.fetch('http://localhost:8080/foodCategories')
+      })
       .then(response => response.json())
-      .then(foodCategories => this.foodCategoryList = foodCategories);
+      .then(data => {
+        client.fetch('http://localhost:8080/restaurants/1')
+          .then(response => response.json())
+          .then(restaurants => this.restaurantList = restaurants)
+          .then(data2 =>{
+            console.log("category count= " + data2.foodCategories.length)
+            deleteCategory(data2.foodCategories);
+        });
+      });
 
-    console.log("Method executed!")
+    console.log("Category Add executed!")
 
-    var toAdd = "<div class='row'>" +
+    function deleteCategory(data){
+      console.log("deleteCategory")
+    var id = data[data.length-1].id
+    toAdd = "<div class='row' id='row"+ id + "'>" +
       "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
       "<div class='col-sm-12 col-xs-12 text-center'>" +
-      this.foodCategoryData.categoryName +
-      "<button type='button' id='122' class='categoryBtn btn btn-danger pull-right' " +
+      data[data.length-1].categoryName +
+      "<button type='button' id='btn"+id+"' class='categoryBtn btn btn-danger pull-right' " +
       "click.delegate='deleteCategory(foodCategory.name)'>" +
       "Delete" +
       "</button>" +
@@ -47,10 +58,9 @@ export class foodAdd {
       "</div>" +
       "</div>";
 
-    $(".categories").prepend($(toAdd).fadeIn('slow'));
-    $(".categoryBtn").bind( "click", function() {
-    var id = $(".categoryBtn").attr('id')
-    console.log("delete")
+    $(".categories").prepend(toAdd);
+
+    $("#btn"+id).bind( "click", function() {
     let client = new HttpClient();
 
     client.fetch('http://localhost:8080/foodCategories/' + id)
@@ -61,9 +71,10 @@ export class foodAdd {
         'method': "DELETE",
         'body': json(this.foodCategory)
       });
-
-    console.log("Method executed!")
+    $("#row"+ id).slideUp(100, function(){ $(this).remove();});
+    console.log("Delete executed!")
     });
+    }
 
   }
 
@@ -108,6 +119,7 @@ export class foodAdd {
         'method': "DELETE",
         'body': json(this.foodCategory)
       });
+    $("#" + id).slideUp(100, function(){ $(this).remove();});
 
     console.log("Method executed!")
 

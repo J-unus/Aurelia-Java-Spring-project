@@ -62,13 +62,17 @@
             </form>
           </div>
           <div class="categories">
-            <div class="row" repeat.for="foodCategory of restaurantList.foodCategories">
+            <div class="row" id="${foodCategory.id}" repeat.for="foodCategory of restaurantList.foodCategories">
               <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
                 <div class="col-sm-12 col-xs-12 text-center">
                   ${foodCategory.categoryName}
                   <button type="button" class="btn btn-danger pull-right" 
                   click.delegate="deleteCategory(foodCategory.id)">
                     Delete
+                  </button>
+                  <button type="button" class="btn btn-primary pull-right" 
+                  click.delegate="deleteCategory(foodCategory.id)">
+                    Edit
                   </button>
                 </div>
               </div>
