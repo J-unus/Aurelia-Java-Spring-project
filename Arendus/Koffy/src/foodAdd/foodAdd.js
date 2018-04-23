@@ -47,18 +47,26 @@ export class foodAdd {
     toAdd = "<div class='row' id='row"+ id + "'>" +
       "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
       "<div class='col-sm-12 col-xs-12 text-center'>" +
+      "<span class='col-md-8 col-xs-8' id='editCategory"+id+"'>" +
       data[data.length-1].categoryName +
-      "<button type='button' id='btn"+id+"' class='categoryBtn btn btn-danger pull-right' " +
+      "</span>" +
+      "<button type='button' id='deleteBtn"+id+"' class='categoryBtn btn btn-danger pull-right' " +
       "click.delegate='deleteCategory(foodCategory.name)'>" +
-      "Delete" +
+      "Delete " +
+      "<span class='glyphicon glyphicon-trash'></span>" +
       "</button>" +
+      "<button type='button' id='editBtn"+id+"' value='edit' class='btn btn-primary pull-right' " +
+      "click.delegate='editCategory(foodCategory.id)'>" +
+      "Edit " +
+      "<span class='glyphicon glyphicon-edit'></span>" +
+      "</button>"
       "</div>" +
       "</div>" +
       "</div>";
 
     $(".categories").prepend(toAdd);
 
-    $("#btn"+id).bind( "click", function() {
+    $("#deleteBtn"+id).bind( "click", function() {
     let client = new HttpClient();
 
     client.fetch('http://localhost:8080/foodCategories/' + id)
@@ -72,6 +80,45 @@ export class foodAdd {
     $("#row"+ id).slideUp(100, function(){ $(this).remove();});
     console.log("Category Delete executed!")
     });
+
+    $("#editBtn"+id).bind( "click", function() {
+      let client = new HttpClient();
+      if($("#editBtn"+id).val() == "edit"){
+        console.log("edit")
+        editCategory(id);
+      }else{
+        console.log("save")
+        saveCategory(id);
+      }
+   
+      function editCategory(id){
+        client.fetch('http://localhost:8080/foodCategories/' + id)
+          .then(response => response.json())
+          .then(data => {
+            $("#editBtn"+id).html('Save<span class="glyphicon glyphicon-check"></span>');
+            $("#editBtn"+id).toggleClass('btn-primary btn-success');
+            $("#editBtn"+id).attr("value", "save");
+            $("#editCategory"+id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='input"+id+"' value='"+data.categoryName+"'></div>");
+          });
+          console.log("editCategory with id = " + id)
+      }
+
+      function saveCategory(id){
+        var foodCategory = $("#input"+id).val();
+        let foodCategorySave = { categoryName: foodCategory};
+        client.fetch('http://localhost:8080/foodCategories/'+ id, {
+          'method': "PUT",
+          'body': json(foodCategorySave)
+        });
+        console.log(id)
+        $("#editBtn"+id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
+        $("#editBtn"+id).toggleClass('btn-success btn-primary');
+        $("#editBtn"+id).attr("value", "edit");
+        $("#editCategory"+id).html(foodCategory);
+        $("#"+id).hide().fadeIn(500);
+      }
+    });
+
     }
 
   }

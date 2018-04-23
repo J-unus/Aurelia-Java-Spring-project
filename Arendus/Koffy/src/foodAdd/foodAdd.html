@@ -124,11 +124,14 @@
           <div class="row" repeat.for="food of foodCategory.foods">
             <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
               <div class="col-sm-10 col-xs-10 text-center">
-                ${food.description}
+                ${food.title}
               </div>
               <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
                 ${food.price}
                 <span class="glyphicon glyphicon-euro"></span>
+              </div>
+              <div class="col-sm-10 col-xs-10 text-center">
+                ${food.description}
               </div>
             </div>
           </div>
