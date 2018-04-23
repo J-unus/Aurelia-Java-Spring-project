@@ -65,14 +65,18 @@
             <div class="row" id="${foodCategory.id}" repeat.for="foodCategory of restaurantList.foodCategories">
               <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
                 <div class="col-sm-12 col-xs-12 text-center">
-                  ${foodCategory.categoryName}
+                  <span class="col-md-8 col-xs-8" id="editCategory${foodCategory.id}">
+                    ${foodCategory.categoryName}
+                  </span>
                   <button type="button" class="btn btn-danger pull-right" 
                   click.delegate="deleteCategory(foodCategory.id)">
                     Delete
+                    <span class="glyphicon glyphicon-trash"></span>
                   </button>
-                  <button type="button" class="btn btn-primary pull-right" 
-                  click.delegate="deleteCategory(foodCategory.id)">
+                  <button type="button" id="btn${foodCategory.id}" value="edit" class="btn btn-primary pull-right" 
+                  click.delegate="editCategory(foodCategory.id)">
                     Edit
+                      <span class="glyphicon glyphicon-edit"></span>
                   </button>
                 </div>
               </div>
