@@ -22,7 +22,7 @@ export class foodAdd {
       .then(response => response.json())
       .then(restaurants => this.restaurantList = restaurants);
   }
-  
+
   addCategory() {
     var toAdd = ""
     let client = new HttpClient();
@@ -34,90 +34,90 @@ export class foodAdd {
       .then(data => {
         client.fetch('http://localhost:8080/restaurants/1')
           .then(response => response.json())
-          .then(data2 =>{
+          .then(data2 => {
             console.log("category count= " + data2.foodCategories.length)
             deleteCategory(data2.foodCategories);
-        });
+          });
       });
 
     console.log("Category Add executed!")
 
-    function deleteCategory(data){
-    var id = data[data.length-1].id
-    toAdd = "<div class='row' id='row"+ id + "'>" +
-      "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
-      "<div class='col-sm-12 col-xs-12 text-center'>" +
-      "<span class='col-md-8 col-xs-8' id='editCategory"+id+"'>" +
-      data[data.length-1].categoryName +
-      "</span>" +
-      "<button type='button' id='deleteBtn"+id+"' class='categoryBtn btn btn-danger pull-right' " +
-      "click.delegate='deleteCategory(foodCategory.name)'>" +
-      "Delete " +
-      "<span class='glyphicon glyphicon-trash'></span>" +
-      "</button>" +
-      "<button type='button' id='editBtn"+id+"' value='edit' class='btn btn-primary pull-right' " +
-      "click.delegate='editCategory(foodCategory.id)'>" +
-      "Edit " +
-      "<span class='glyphicon glyphicon-edit'></span>" +
-      "</button>"
+    function deleteCategory(data) {
+      var id = data[data.length - 1].id
+      toAdd = "<div class='row' id='row" + id + "'>" +
+        "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
+        "<div class='col-sm-12 col-xs-12 text-center'>" +
+        "<span class='col-md-8 col-xs-8' id='editCategory" + id + "'>" +
+        data[data.length - 1].categoryName +
+        "</span>" +
+        "<button type='button' id='categoryDeleteBtn" + id + "' class='categoryBtn btn btn-danger pull-right' " +
+        "click.delegate='deleteCategory(foodCategory.name)'>" +
+        "Delete " +
+        "<span class='glyphicon glyphicon-trash'></span>" +
+        "</button>" +
+        "<button type='button' id='categoryEditBtn" + id + "' value='edit' class='btn btn-primary pull-right' " +
+        "click.delegate='editCategory(foodCategory.id)'>" +
+        "Edit " +
+        "<span class='glyphicon glyphicon-edit'></span>" +
+        "</button>"
       "</div>" +
       "</div>" +
       "</div>";
 
-    $(".categories").prepend(toAdd);
+      $(".categories").prepend(toAdd);
 
-    $("#deleteBtn"+id).bind( "click", function() {
-    let client = new HttpClient();
+      $("#categoryDeleteBtn" + id).bind("click", function() {
+        let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/foodCategories/' + id)
-      .then(response => response.json())
-      .then(foodCategory => this.foodCategory = foodCategory);
-
-    client.fetch('http://localhost:8080/foodCategories/'+ id, {
-        'method': "DELETE",
-        'body': json(this.foodCategory)
-      });
-    $("#row"+ id).slideUp(100, function(){ $(this).remove();});
-    console.log("Category Delete executed!")
-    });
-
-    $("#editBtn"+id).bind( "click", function() {
-      let client = new HttpClient();
-      if($("#editBtn"+id).val() == "edit"){
-        console.log("edit")
-        editCategory(id);
-      }else{
-        console.log("save")
-        saveCategory(id);
-      }
-   
-      function editCategory(id){
         client.fetch('http://localhost:8080/foodCategories/' + id)
           .then(response => response.json())
-          .then(data => {
-            $("#editBtn"+id).html('Save<span class="glyphicon glyphicon-check"></span>');
-            $("#editBtn"+id).toggleClass('btn-primary btn-success');
-            $("#editBtn"+id).attr("value", "save");
-            $("#editCategory"+id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='input"+id+"' value='"+data.categoryName+"'></div>");
-          });
-          console.log("editCategory with id = " + id)
-      }
+          .then(foodCategory => this.foodCategory = foodCategory);
 
-      function saveCategory(id){
-        var foodCategory = $("#input"+id).val();
-        let foodCategorySave = { categoryName: foodCategory};
-        client.fetch('http://localhost:8080/foodCategories/'+ id, {
-          'method': "PUT",
-          'body': json(foodCategorySave)
+        client.fetch('http://localhost:8080/foodCategories/' + id, {
+          'method': "DELETE",
+          'body': json(this.foodCategory)
         });
-        console.log(id)
-        $("#editBtn"+id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
-        $("#editBtn"+id).toggleClass('btn-success btn-primary');
-        $("#editBtn"+id).attr("value", "edit");
-        $("#editCategory"+id).html(foodCategory);
-        $("#"+id).hide().fadeIn(500);
-      }
-    });
+        $("#row" + id).slideUp(100, function() { $(this).remove(); });
+        console.log("Category Delete executed!")
+      });
+
+      $("#categoryEditBtn" + id).bind("click", function() {
+        let client = new HttpClient();
+        if ($("#categoryEditBtn" + id).val() == "edit") {
+          console.log("edit")
+          editCategory(id);
+        } else {
+          console.log("save")
+          saveCategory(id);
+        }
+
+        function editCategory(id) {
+          client.fetch('http://localhost:8080/foodCategories/' + id)
+            .then(response => response.json())
+            .then(data => {
+              $("#categoryEditBtn" + id).html('Save<span class="glyphicon glyphicon-check"></span>');
+              $("#categoryEditBtn" + id).toggleClass('btn-primary btn-success');
+              $("#categoryEditBtn" + id).attr("value", "save");
+              $("#editCategory" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='input" + id + "' value='" + data.categoryName + "'></div>");
+            });
+          console.log("editCategory with id = " + id)
+        }
+
+        function saveCategory(id) {
+          var foodCategory = $("#input" + id).val();
+          let foodCategorySave = { categoryName: foodCategory };
+          client.fetch('http://localhost:8080/foodCategories/' + id, {
+            'method': "PUT",
+            'body': json(foodCategorySave)
+          });
+          console.log(id)
+          $("#categoryEditBtn" + id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
+          $("#categoryEditBtn" + id).toggleClass('btn-success btn-primary');
+          $("#categoryEditBtn" + id).attr("value", "edit");
+          $("#editCategory" + id).html(foodCategory);
+          $("#" + id).hide().fadeIn(500);
+        }
+      });
 
     }
 
@@ -161,50 +161,50 @@ export class foodAdd {
       .then(response => response.json())
       .then(foodCategory => this.foodCategory = foodCategory);
 
-    client.fetch('http://localhost:8080/foodCategories/'+ id, {
-        'method': "DELETE",
-        'body': json(this.foodCategory)
-      });
-    $("#" + id).slideUp(100, function(){ $(this).remove();});
+    client.fetch('http://localhost:8080/foodCategories/' + id, {
+      'method': "DELETE",
+      'body': json(this.foodCategory)
+    });
+    $("#" + id).slideUp(100, function() { $(this).remove(); });
 
     console.log("Method executed!")
 
   }
 
-  editCategory(id){
+  editCategory(id) {
     let client = new HttpClient();
-    if($("#btn"+id).val() == "edit"){
+    if ($("#btn" + id).val() == "edit") {
       editCategory(id);
-    }else{
+    } else {
       saveCategory(id);
     }
- 
-    function editCategory(id){
+
+    function editCategory(id) {
       client.fetch('http://localhost:8080/foodCategories/' + id)
         .then(response => response.json())
         .then(data => {
-          $("#btn"+id).html('Save<span class="glyphicon glyphicon-check"></span>');
-          $("#btn"+id).toggleClass('btn-primary btn-success');
-          $("#btn"+id).attr("value", "save");
-          $("#editCategory"+id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='input"+id+"' value='"+data.categoryName+"'></div>");
+          $("#btn" + id).html('Save<span class="glyphicon glyphicon-check"></span>');
+          $("#btn" + id).toggleClass('btn-primary btn-success');
+          $("#btn" + id).attr("value", "save");
+          $("#editCategory" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='input" + id + "' value='" + data.categoryName + "'></div>");
         });
     }
 
-    function saveCategory(id){
-      var foodCategory = $("#input"+id).val();
-      let foodCategorySave = { categoryName: foodCategory};
-      client.fetch('http://localhost:8080/foodCategories/'+ id, {
+    function saveCategory(id) {
+      var foodCategory = $("#input" + id).val();
+      let foodCategorySave = { categoryName: foodCategory };
+      client.fetch('http://localhost:8080/foodCategories/' + id, {
         'method': "PUT",
         'body': json(foodCategorySave)
       });
       console.log(id)
-      $("#btn"+id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
-      $("#btn"+id).toggleClass('btn-success btn-primary');
-      $("#btn"+id).attr("value", "edit");
-      $("#editCategory"+id).html(foodCategory);
-      $("#"+id).hide().fadeIn(500);
+      $("#btn" + id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
+      $("#btn" + id).toggleClass('btn-success btn-primary');
+      $("#btn" + id).attr("value", "edit");
+      $("#editCategory" + id).html(foodCategory);
+      $("#" + id).hide().fadeIn(500);
     }
   }
-  
+
 
 }
