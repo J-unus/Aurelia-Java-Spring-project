@@ -50,10 +50,10 @@ export class userView {
 
   foodLike(id){
     let client = new HttpClient();
-    let restaurantLike = { rating: true };
-    client.fetch('http://localhost:8080/restaurantLikes/add?user_id=4&restaurant_id='+id, {
+    let foodLike = { rating: true };
+    client.fetch('http://localhost:8080/foodLikes/add?user_id=4&food_id='+id, {
         'method': "POST",
-        'body': json(restaurantLike)
+        'body': json(foodLike)
       })
       .then(response => response.json())
       .then(data => {
@@ -62,10 +62,10 @@ export class userView {
   }
   foodDislike(id){
     let client = new HttpClient();
-    let restaurantDislike = { rating: false };
-    client.fetch('http://localhost:8080/restaurantLikes/add?user_id=4&restaurant_id='+id, {
+    let foodDislike = { rating: false };
+    client.fetch('http://localhost:8080/foodLikes/add?user_id=4&food_id='+id, {
         'method': "POST",
-        'body': json(restaurantDislike)
+        'body': json(foodDislike)
       })
       .then(response => response.json())
       .then(data => {
