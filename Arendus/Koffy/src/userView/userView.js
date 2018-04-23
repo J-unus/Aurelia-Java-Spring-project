@@ -48,4 +48,29 @@ export class userView {
       });
   }
 
+  foodLike(id){
+    let client = new HttpClient();
+    let restaurantLike = { rating: true };
+    client.fetch('http://localhost:8080/restaurantLikes/add?user_id=4&restaurant_id='+id, {
+        'method': "POST",
+        'body': json(restaurantLike)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Server saatis " + data.id);
+      });
+  }
+  foodDislike(id){
+    let client = new HttpClient();
+    let restaurantDislike = { rating: false };
+    client.fetch('http://localhost:8080/restaurantLikes/add?user_id=4&restaurant_id='+id, {
+        'method': "POST",
+        'body': json(restaurantDislike)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Server saatis " + data.id);
+      });
+  }
+
 }
