@@ -103,21 +103,23 @@
         <div class="tab-content">
         <div repeat.for="foodCategory of restaurantList.foodCategories" id="foodCategory${foodCategory.id}" class="modal-body tab-pane fade">
           <div class="row">
-            <form id="foodAddForm" submit.delegate="addFood()">
-              <div class="col-md-12 col-xs-12 form-horizontal">
-                <div class="form-group">
-                  <label class="control-label col-sm-2" for="foodAdd">Add item:</label>
-                  <div class="row col-md-10">
-                    <input type="text" class="form-control" id="foodTitle" name="foodTitle" value.bind="foodData.title" placeholder=" Enter food title">
-                    <input type="text" class="form-control" id="foodDescription" name="foodDescription" value.bind="foodData.description" placeholder=" Enter food description">
-                    <input type="number" class="form-control" id="foodPrice" name="foodPrice" value.bind="foodData.price" placeholder=" Enter food price">
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#addFood${foodCategory.id}">Add item</button>
+            <div id="addFood${foodCategory.id}" class="collapse">
+              <form id="foodAddForm" submit.delegate="addFood()">
+                <div class="col-md-12 col-xs-12 form-horizontal">
+                  <div class="form-group">
+                      <div class="row col-md-10">
+                        <input type="text" class="form-control" id="foodTitle" name="foodTitle" value.bind="foodData.title" placeholder=" Enter food title">
+                        <input type="text" class="form-control" id="foodDescription" name="foodDescription" value.bind="foodData.description" placeholder=" Enter food description">
+                        <input type="number" class="form-control" id="foodPrice" name="foodPrice" value.bind="foodData.price" placeholder=" Enter food price">
+                      </div>
+                      <div class="col-md-5 col-md-offset-4">
+                      <button type="submit" class="btn btn-success btn-block submit"><h3>ADD</h3></button>
+                    </div>
                   </div>
-                  <div class="col-md-5 col-md-offset-4">
-                  <button type="submit" class="btn btn-success btn-block submit"><h3>ADD</h3></button>
                 </div>
-              </div>
-          </div>
-          </form>
+              </form>
+            </div>
         </div>
           <div class="row" repeat.for="food of foodCategory.foods">
             <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
