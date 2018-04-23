@@ -33,7 +33,7 @@ public class UserServiceTest {
         Restaurant restaurant1 = new Restaurant();
         Restaurant restaurant2 = new Restaurant();
 
-        List<Restaurant> restaurants = new ArrayList<Restaurant>();
+        List<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(restaurant1);
 
         user.setRestaurants(restaurants);

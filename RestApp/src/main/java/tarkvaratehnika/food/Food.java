@@ -18,6 +18,7 @@ public class Food {
     @Id
     @GeneratedValue
     private long id;
+    private String title;
     private String description;
     private String image;
     private double price;
