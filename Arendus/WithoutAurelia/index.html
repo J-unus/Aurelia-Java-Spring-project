@@ -30,7 +30,12 @@
                 title: 'Total restaurant rating',
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['#32CD32', "rgb(220, 57, 18)"]
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: true
+                }
             };
 
             var data1 = google.visualization.arrayToDataTable([
@@ -128,7 +133,7 @@
             data.addColumn('number', 'Likes');
             data.addColumn('number', 'Dislikes');
 
-            data.addRows([
+            var rawData = [
                 [0, 0, 0],
                 [1, 10, 9],
                 [2, 23, 11],
@@ -167,20 +172,44 @@
                 [35, 65, 35],
                 [36, 62, 35],
                 [37, 58, 34]
-            ]);
+            ];
 
             var options = {
                 hAxis: {
-                    title: 'Time'
+                    title: 'Time',
+                    viewWindow: {
+                        min: 0,
+                        max: 40
+                    }
                 },
                 vAxis: {
-                    title: 'Total amount'
+                    title: 'Total amount',
+                    viewWindow: {
+                        min: 0,
+                        max: 100
+                    }
+                },
+                animation: {
+                    startup: true,
+                    duration: 600,
+                    easing: 'in'
                 }
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            drawChart();
+            setInterval(drawChart, 600);
 
-            chart.draw(data, options);
+            var rowIndex = 0;
+
+            function drawChart() {
+                if (rowIndex < rawData.length) {
+                    data.addRow(rawData[rowIndex++]);
+                    chart.draw(data, options);
+                }
+            }
+            // chart.draw(data, options);
+
         }
 
     </script>
