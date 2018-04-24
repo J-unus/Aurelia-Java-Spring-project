@@ -115,32 +115,33 @@
                       </div>
                       <div class="col-md-5 col-md-offset-4">
                       <button type="submit" class="btn btn-success btn-block submit"><h3>ADD</h3></button>
-                    </div>
-                  </div>
                 </div>
-              </form>
-            </div>
-        </div>
-          <div class="row" repeat.for="food of foodCategory.foods">
-            <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
-              <div class="col-sm-10 col-xs-10 text-center">
-                ${food.title}
               </div>
-              <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
-                ${food.price}
-                <span class="glyphicon glyphicon-euro"></span>
-              </div>
-              <div class="col-sm-10 col-xs-10 text-center">
-                ${food.description}
-              </div>
-            </div>
           </div>
+          </form>
+        </div>
       </div>
-    </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="row" repeat.for="food of foodCategory.foods">
+        <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
+          <div class="col-sm-10 col-xs-10 text-center">
+            ${food.title}
+          </div>
+          <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
+            ${food.price}
+            <span class="glyphicon glyphicon-euro"></span>
+          </div>
+          <div class="col-sm-10 col-xs-10 text-center">
+            ${food.description}
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
+  </div>
+  </div>
+  </div>
+  
 </template>
