@@ -5,6 +5,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -31,11 +32,10 @@
                 legend: 'none',
                 pieSliceText: 'label',
                 colors: ['#32CD32', "rgb(220, 57, 18)"],
-                animation: {
-                    duration: 1000,
-                    easing: 'out',
-                    startup: true
-                }
+                backgroundColor: 'transparent',
+                titleTextStyle: {
+                    color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                },
             };
 
             var data1 = google.visualization.arrayToDataTable([
@@ -48,7 +48,11 @@
                 title: 'Total category1 rating',
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['#32CD32', "rgb(220, 57, 18)"]
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                backgroundColor: 'transparent',
+                titleTextStyle: {
+                    color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                },
             };
 
             var data2 = google.visualization.arrayToDataTable([
@@ -61,7 +65,11 @@
                 title: 'Total category2 rating',
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['#32CD32', "rgb(220, 57, 18)"]
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                backgroundColor: 'transparent',
+                titleTextStyle: {
+                    color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                }
             };
 
             var data3 = google.visualization.arrayToDataTable([
@@ -74,7 +82,11 @@
                 title: 'Total cateogry3 rating',
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['#32CD32', "rgb(220, 57, 18)"]
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                backgroundColor: 'transparent',
+                titleTextStyle: {
+                    color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                }
             };
 
             var data4 = google.visualization.arrayToDataTable([
@@ -87,7 +99,11 @@
                 title: 'Total category4 rating',
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['#32CD32', "rgb(220, 57, 18)"]
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                backgroundColor: 'transparent',
+                titleTextStyle: {
+                    color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                }
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -180,20 +196,43 @@
                     viewWindow: {
                         min: 0,
                         max: 40
-                    }
+                    },
+                    textStyle: {
+                        color: '#FFF'
+                    },
+                    titleTextStyle: {
+                        color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                    },
+                    gridlines: {
+                        color: "#FFF"
+                    },
+                    baselineColor: '#FFF'
                 },
                 vAxis: {
                     title: 'Total amount',
                     viewWindow: {
                         min: 0,
                         max: 100
-                    }
+                    },
+                    textStyle: {
+                        color: '#FFF'
+                    },
+                    titleTextStyle: {
+                        color: '#FFF', // any HTML string color ('red', '#cc00cc')
+                    },
+                    gridlines: {
+                        color: "#FFF"
+                    },
+                    baselineColor: '#FFF'
                 },
                 animation: {
                     startup: true,
                     duration: 600,
                     easing: 'in'
-                }
+                },
+                colors: ['#32CD32', "rgb(220, 57, 18)"],
+                backgroundColor: 'transparent',
+                lineWidth: 5
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));

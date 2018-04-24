@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Iceland;
+    src: url(https://fonts.googleapis.com/css?family=Iceland);
+}
+
+body {
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #007080, #006080);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #007080, #006080);
+    /*background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");*/
+    font-family: Iceland;
+}
+
+.background-change {
+    background: -webkit-linear-gradient(to left, #007080, #006080);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #007080, #006080);
+}
