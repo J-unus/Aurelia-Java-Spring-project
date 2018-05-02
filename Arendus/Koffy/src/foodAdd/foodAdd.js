@@ -44,11 +44,13 @@ export class foodAdd {
 
     function deleteCategory(data) {
       var id = data[data.length - 1].id
+      var insertCategory = $( $.parseHTML(data[data.length - 1].categoryName)).text();
+      console.log("insertCategory =" + insertCategory)
       toAdd = "<div class='row' id='row" + id + "'>" +
         "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
         "<div class='col-sm-12 col-xs-12 text-center'>" +
         "<span class='col-md-8 col-xs-8' id='editCategory" + id + "'>" +
-        data[data.length - 1].categoryName +
+        insertCategory +
         "</span>" +
         "<button type='button' id='categoryDeleteBtn" + id + "' class='categoryBtn btn btn-danger pull-right' " +
         "click.delegate='deleteCategory(foodCategory.name)'>" +
