@@ -125,10 +125,10 @@ export class foodAdd {
 
   }
 
-  addFood() {
+  addFood(id) {
     console.log("addFood")
     let client = new HttpClient();
-    client.fetch('http://localhost:8080/foodCategories/addFood/1', {
+    client.fetch('http://localhost:8080/foodCategories/addFood/' + id, {
         'method': "POST",
         'body': json(this.foodData)
       })

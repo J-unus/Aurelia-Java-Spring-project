@@ -105,7 +105,7 @@
           <div class="row">
             <button class="btn btn-primary" data-toggle="collapse" data-target="#addFood${foodCategory.id}">ADD ITEM</button>
             <div id="addFood${foodCategory.id}" class="collapse">
-              <form id="foodAddForm" submit.delegate="addFood()">
+              <form id="foodAddForm" submit.delegate="addFood(foodCategory.id)">
                 <div class="col-md-12 col-xs-12 form-horizontal">
                   <div class="form-group">
                       <div class="row col-md-10">
