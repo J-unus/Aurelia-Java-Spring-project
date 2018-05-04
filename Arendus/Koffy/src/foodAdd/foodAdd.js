@@ -44,7 +44,7 @@ export class foodAdd {
 
     function deleteCategory(data) {
       var id = data[data.length - 1].id
-      var insertCategory = $( $.parseHTML(data[data.length - 1].categoryName)).text();
+      var insertCategory = $($.parseHTML(data[data.length - 1].categoryName)).text();
       console.log("insertCategory =" + insertCategory)
       toAdd = "<div class='row' id='row" + id + "'>" +
         "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
@@ -156,18 +156,35 @@ export class foodAdd {
   }
 
   deleteCategory(id) {
-    console.log("delete")
+    console.log("category delete")
     let client = new HttpClient();
 
-    client.fetch('http://localhost:8080/foodCategories/' + id)
+    client.fetch('http://localhost:8080/foods/' + id)
+      .then(response => response.json())
+      .then(food => this.food = food);
+
+    client.fetch('http://localhost:8080/foods/' + id, {
+      'method': "DELETE",
+      'body': json(this.food)
+    });
+    $("#food" + id).slideUp(100, function() { $(this).remove(); });
+
+    console.log("Method executed!")
+
+  }
+
+  deleteFood(id) {
+    console.log("food delete")
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/foods/' + id)
       .then(response => response.json())
       .then(foodCategory => this.foodCategory = foodCategory);
 
-    client.fetch('http://localhost:8080/foodCategories/' + id, {
-      'method': "DELETE",
-      'body': json(this.foodCategory)
+    client.fetch('http://localhost:8080/foods/' + id, {
+      'method': "DELETE"
     });
-    $("#" + id).slideUp(100, function() { $(this).remove(); });
+    $("#food" + id).slideUp(100, function() { $(this).remove(); });
 
     console.log("Method executed!")
 

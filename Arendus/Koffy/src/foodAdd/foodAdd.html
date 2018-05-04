@@ -121,7 +121,7 @@
           </form>
         </div>
       </div>
-      <div class="row" repeat.for="food of foodCategory.foods">
+      <div class="row" repeat.for="food of foodCategory.foods" id="food${food.id}">
         <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
           <div class="col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0">
             ${food.price}
