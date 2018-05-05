@@ -2,6 +2,7 @@ package tarkvaratehnika.food;
 
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -11,6 +12,10 @@ public class FoodService {
 
     public FoodService(FoodRepository foodRepository) {
         this.foodRepository = foodRepository;
+    }
+    public Food addFood(Food food) {
+        foodRepository.save(food);
+        return food;
     }
 
     public List<Food> getAllFoods() {
@@ -26,6 +31,8 @@ public class FoodService {
         oldFood.setDescription(newFood.getDescription());
         oldFood.setImage(newFood.getImage());
         oldFood.setPrice(newFood.getPrice());
+        oldFood.setTitle(newFood.getTitle());
+        oldFood.setModifiedTs(new Timestamp(System.currentTimeMillis()));
         foodRepository.save(oldFood);
         return oldFood;
     }

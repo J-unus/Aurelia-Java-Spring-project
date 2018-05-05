@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.sql.Timestamp;
 
 @Entity
 @Getter
@@ -19,6 +20,7 @@ public class RestaurantLike {
     @GeneratedValue
     private long id;
     private boolean rating;
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
 
     @JsonIgnore
     @ManyToOne()

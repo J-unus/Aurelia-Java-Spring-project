@@ -9,5 +9,6 @@ import java.util.List;
 public interface CommentRepository extends CrudRepository<Comment, Long> {
     @Override
     List<Comment> findAll();
+    List<Comment> findAllByOrderByCreatedTsDesc();
 }
 

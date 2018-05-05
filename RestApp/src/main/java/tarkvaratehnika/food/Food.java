@@ -8,6 +8,7 @@ import tarkvaratehnika.foodCategory.FoodCategory;
 import tarkvaratehnika.foodLike.FoodLike;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,8 @@ public class Food {
     private String description;
     private String image;
     private double price;
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
+    private Timestamp modifiedTs = new Timestamp(System.currentTimeMillis());
 
     @JsonBackReference
     @ManyToOne()

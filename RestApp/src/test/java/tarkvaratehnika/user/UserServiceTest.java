@@ -43,17 +43,9 @@ public class UserServiceTest {
 
     @Test
     public void getAllUsers() {
-        User u1 = new User();
-        u1.setId(1L);
-        service.addUser(u1);
-
-        User u2 = new User();
-        u2.setId(2L);
-        service.addUser(u2);
-
-        User u3 = new User();
-        u3.setId(3L);
-        service.addUser(u3);
+        service.addUser(new User());
+        service.addUser(new User());
+        service.addUser(new User());
 
         service.getAllUsers();
         verify(repository).findAll();

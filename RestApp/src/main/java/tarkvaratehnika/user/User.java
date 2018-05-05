@@ -8,6 +8,7 @@ import tarkvaratehnika.restaurant.Restaurant;
 import tarkvaratehnika.restaurantLike.RestaurantLike;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,8 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
+    private boolean canAddRestaurant = false;
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Restaurant> restaurants;

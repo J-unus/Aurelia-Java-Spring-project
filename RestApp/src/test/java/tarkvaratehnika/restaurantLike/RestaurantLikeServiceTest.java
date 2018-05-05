@@ -6,9 +6,9 @@ import tarkvaratehnika.restaurant.Restaurant;
 import tarkvaratehnika.user.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class RestaurantLikeServiceTest {
     private RestaurantLikeRepository repository;
@@ -22,47 +22,45 @@ public class RestaurantLikeServiceTest {
 
     @Test
     public void addRestaurantLike() {
-
-        RestaurantLike restaurantLike = new RestaurantLike();
         User user = new User();
-        user.setId(1L);
         Restaurant restaurant = new Restaurant();
-        user.setRestaurantLikes(new ArrayList<>());
+        List<RestaurantLike> restaurantLikes = new ArrayList<>();
 
-        service.addRestaurantLike(restaurantLike, user, restaurant);
+        user.setRestaurantLikes(restaurantLikes);
+        restaurant.setRestaurantLikes(restaurantLikes);
 
-        service.getAllRestaurantLikes();
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
         verify(repository).findAll();
     }
 
     @Test
     public void getAllRestaurantLikes() {
-        /*
-        RestaurantLike u1 = new RestaurantLike();
-        u1.setId(1L);
-        service.addRestaurantLike(u1);
+        User user = new User();
+        Restaurant restaurant = new Restaurant();
+        List<RestaurantLike> restaurantLikes = new ArrayList<>();
 
-        RestaurantLike u2 = new RestaurantLike();
-        u2.setId(2L);
-        service.addRestaurantLike(u2);
+        user.setRestaurantLikes(restaurantLikes);
+        restaurant.setRestaurantLikes(restaurantLikes);
 
-        RestaurantLike u3 = new RestaurantLike();
-        u3.setId(3L);
-        service.addRestaurantLike(u3);
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
 
         service.getAllRestaurantLikes();
-        verify(repository).findAll();
-        */
+        verify(repository, times(4)).findAll();
     }
 
     @Test
     public void getRestaurantLikeById() {
-        /*
-        RestaurantLike restaurantLike = new RestaurantLike();
-        restaurantLike.setId(1L);
-        service.addRestaurantLike(restaurantLike);
-        service.getRestaurantLikeById(1L);
-        verify(repository).findOne(1L);
-        */
+        User user = new User();
+        Restaurant restaurant = new Restaurant();
+        List<RestaurantLike> restaurantLikes = new ArrayList<>();
+
+        user.setRestaurantLikes(restaurantLikes);
+        restaurant.setRestaurantLikes(restaurantLikes);
+
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
+        service.getRestaurantLikeById(0L);
+        verify(repository).findOne(0L);
     }
 }

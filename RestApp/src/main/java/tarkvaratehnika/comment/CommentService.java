@@ -35,7 +35,7 @@ public class CommentService {
     }
 
     public List<Comment> getAllComments() {
-        return commentRepository.findAll();
+        return commentRepository.findAllByOrderByCreatedTsDesc();
     }
 
     public Comment getCommentById(long commentId) {
