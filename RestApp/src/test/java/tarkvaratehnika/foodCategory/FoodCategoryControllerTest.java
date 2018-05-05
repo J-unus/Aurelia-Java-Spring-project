@@ -19,8 +19,7 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -72,5 +71,23 @@ public class FoodCategoryControllerTest {
                 post("/foodCategories/addFood/0").contentType(MediaType.APPLICATION_JSON)
                         .content(jsonFood)).andReturn().getResponse();
         assertEquals(response.getStatus(), HttpStatus.CREATED.value());
+    }
+    
+    @Test
+    public void updateFoodCategory() throws Exception {
+        String jsonFoodCategory = new JSONObject()
+                .put("content", "lorem ipsum").toString();
+
+        MockHttpServletResponse response = mvc.perform(
+                put("/foodCategories/1").contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonFoodCategory)).andReturn().getResponse();
+        assertEquals(response.getStatus(), HttpStatus.OK.value());
+    }
+
+    @Test
+    public void deleteFoodCategory() throws Exception {
+        MockHttpServletResponse response = mvc.perform(
+                delete("/foodCategories/1")).andReturn().getResponse();
+        assertEquals(response.getStatus(), HttpStatus.OK.value());
     }
 }

@@ -36,15 +36,19 @@ public class RestaurantLikeServiceTest {
     @Test
     public void getAllRestaurantLikes() {
         User user = new User();
+        User user2 = new User();
         Restaurant restaurant = new Restaurant();
+        Restaurant restaurant2 = new Restaurant();
         List<RestaurantLike> restaurantLikes = new ArrayList<>();
 
         user.setRestaurantLikes(restaurantLikes);
+        user2.setRestaurantLikes(restaurantLikes);
         restaurant.setRestaurantLikes(restaurantLikes);
+        restaurant2.setRestaurantLikes(restaurantLikes);
 
         service.addRestaurantLike(new RestaurantLike(), user, restaurant);
-        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
-        service.addRestaurantLike(new RestaurantLike(), user, restaurant);
+        service.addRestaurantLike(new RestaurantLike(), user, restaurant2);
+        service.addRestaurantLike(new RestaurantLike(), user2, restaurant);
 
         service.getAllRestaurantLikes();
         verify(repository, times(4)).findAll();
