@@ -9,6 +9,5 @@ import java.util.List;
 public interface FoodCategoryRepository extends CrudRepository<FoodCategory, Long> {
     @Override
     List<FoodCategory> findAll();
-
     List<FoodCategory> findAllByOrderByCategoryNameAsc();
 }
