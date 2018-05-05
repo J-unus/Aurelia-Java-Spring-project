@@ -258,25 +258,27 @@ export class foodAdd {
           $("#foodbtn" + id).html('Save<span class="glyphicon glyphicon-check"></span>');
           $("#foodbtn" + id).toggleClass('btn-primary btn-success');
           $("#foodbtn" + id).attr("value", "save");
-          $("#editFoodTitle" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='foodinput" + id + "' value='" + data.title + "'></div>");
-          $("#editFoodDescription" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='foodinput" + id + "' value='" + data.description + "'></div>");
-          $("#editFoodPrice" + id).html("<div class='form-group'><input type='number' class='form-control input-sm' id='foodinput" + id + "' value='" + data.price + "'></div>");
+          $("#editFoodTitle" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='foodTitle" + id + "' value='" + data.title + "'></div>");
+          $("#editFoodDescription" + id).html("<div class='form-group'><input type='text' class='form-control input-sm' id='foodDescription" + id + "' value='" + data.description + "'></div>");
+          $("#editFoodPrice" + id).html("<div class='form-group'><input type='number' class='form-control input-sm' id='foodPrice" + id + "' value='" + data.price + "'></div>");
         });
     }
 
     function saveFood(id) {
-      //var foodCategory = $("#foodinput" + id).val();
-      //let foodCategorySave = { categoryName: foodCategory };
-      //client.fetch('http://localhost:8080/foods/' + id, {
-      //  'method': "PUT",
-      //  'body': json(foodCategorySave)
-      //});
-     // console.log(id)
+      var foodTitle = $("#foodTitle" + id).val();
+      var foodDescription = $("#foodDescription" + id).val();
+      var foodPrice = $("#foodPrice" + id).val();
+      let foodSave = {description: foodDescription,price: foodPrice,title: foodTitle };
+      client.fetch('http://localhost:8080/foods/' + id, {
+        'method': "PUT",
+        'body': json(foodSave)
+      });
       $("#foodbtn" + id).html('Edit<span class="glyphicon glyphicon-edit"></span>');
       $("#foodbtn" + id).toggleClass('btn-success btn-primary');
       $("#foodbtn" + id).attr("value", "edit");
-      //$("#editFood" + id).html(foodCategory);
-      //$("#" + id).hide().fadeIn(500);
+      $("#editFoodTitle" + id).html(foodTitle);
+      $("#editFoodDescription" + id).html(foodDescription);
+      $("#editFoodPrice" + id).html(foodPrice+"<span class='glyphicon glyphicon-euro'></span>");
     }
   }
 
