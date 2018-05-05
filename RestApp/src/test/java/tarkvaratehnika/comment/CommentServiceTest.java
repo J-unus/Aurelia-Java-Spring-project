@@ -37,17 +37,18 @@ public class CommentServiceTest {
     public void getAllComments() {
         User user = new User();
         Food food = new Food();
+        Food food2 = new Food();
         List<Comment> comments = new ArrayList<>();
 
         user.setComments(comments);
         food.setComments(comments);
+        food2.setComments(comments);
 
         service.addComment(new Comment(), user, food);
-        service.addComment(new Comment(), user, food);
-        service.addComment(new Comment(), user, food);
+        service.addComment(new Comment(), user, food2);
 
         service.getAllComments();
-        verify(repository, times(3)).findAll();
+        verify(repository, times(2)).findAll();
     }
 
     @Test
