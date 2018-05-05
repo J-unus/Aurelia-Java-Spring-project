@@ -13,6 +13,10 @@ public class FoodService {
     public FoodService(FoodRepository foodRepository) {
         this.foodRepository = foodRepository;
     }
+    public Food addFood(Food food) {
+        foodRepository.save(food);
+        return food;
+    }
 
     public List<Food> getAllFoods() {
         return foodRepository.findAll();

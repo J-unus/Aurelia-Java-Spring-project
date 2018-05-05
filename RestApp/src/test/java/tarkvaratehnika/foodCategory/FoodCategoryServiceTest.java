@@ -34,7 +34,7 @@ public class FoodCategoryServiceTest {
         Food food1 = new Food();
         Food food2 = new Food();
 
-        List<Food> foods = new ArrayList<Food>();
+        List<Food> foods = new ArrayList<>();
         foods.add(food1);
 
         foodCategory.setFoods(foods);
@@ -55,7 +55,7 @@ public class FoodCategoryServiceTest {
         service.addFoodCategory(foodCategory3);
 
         service.getAllFoodCategories();
-        verify(repository).findAll();
+        verify(repository).findAllByOrderByCategoryNameAsc();
     }
 
     @Test
