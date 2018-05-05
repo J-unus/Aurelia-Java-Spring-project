@@ -3,6 +3,7 @@ package tarkvaratehnika.foodCategory;
 import org.springframework.stereotype.Service;
 import tarkvaratehnika.food.Food;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -39,6 +40,7 @@ public class FoodCategoryService {
     public FoodCategory updateFoodCategoryById(FoodCategory newFoodCategory, long foodCategoryId) {
         FoodCategory oldFoodCategory = foodCategoryRepository.findOne(foodCategoryId);
         oldFoodCategory.setCategoryName(newFoodCategory.getCategoryName());
+        oldFoodCategory.setModified_ts(new Timestamp(System.currentTimeMillis()));
         foodCategoryRepository.save(oldFoodCategory);
         return oldFoodCategory;
     }

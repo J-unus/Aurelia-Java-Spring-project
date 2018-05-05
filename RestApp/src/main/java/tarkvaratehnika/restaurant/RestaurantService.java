@@ -3,6 +3,7 @@ package tarkvaratehnika.restaurant;
 import org.springframework.stereotype.Service;
 import tarkvaratehnika.foodCategory.FoodCategory;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -39,11 +40,12 @@ public class RestaurantService {
     public Restaurant updateRestaurantById(Restaurant newRestaurant, long restaurantId) {
         Restaurant oldRestaurant = restaurantRepository.findOne(restaurantId);
         oldRestaurant.setName(newRestaurant.getName());
-        oldRestaurant.setOpenTime(newRestaurant.getOpenTime());
-        oldRestaurant.setCloseTime(newRestaurant.getCloseTime());
+        oldRestaurant.setWeekdays(newRestaurant.getWeekdays());
+        oldRestaurant.setWeekend(newRestaurant.getWeekend());
         oldRestaurant.setPhoneNumber(newRestaurant.getPhoneNumber());
         oldRestaurant.setLocation(newRestaurant.getLocation());
         oldRestaurant.setDescription(newRestaurant.getDescription());
+        oldRestaurant.setModified_ts(new Timestamp(System.currentTimeMillis()));
         restaurantRepository.save(oldRestaurant);
         return oldRestaurant;
     }

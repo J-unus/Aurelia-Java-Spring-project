@@ -8,6 +8,7 @@ import tarkvaratehnika.restaurantLike.RestaurantLike;
 import tarkvaratehnika.user.User;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -18,11 +19,13 @@ public class Restaurant {
     @GeneratedValue
     private long id;
     private String name;
-    private String openTime;
-    private String closeTime;
+    private String weekdays;
+    private String weekend;
     private String phoneNumber;
     private String location;
     private String description;
+    private Timestamp created_ts = new Timestamp(System.currentTimeMillis());
+    private Timestamp modified_ts = new Timestamp(System.currentTimeMillis());
 
     @JsonBackReference
     @ManyToOne()
