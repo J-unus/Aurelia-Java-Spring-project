@@ -18,8 +18,8 @@ public class FoodCategory {
     @GeneratedValue
     private long id;
     private String categoryName;
-    private Timestamp created_ts = new Timestamp(System.currentTimeMillis());
-    private Timestamp modified_ts = new Timestamp(System.currentTimeMillis());
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
+    private Timestamp modifiedTs = new Timestamp(System.currentTimeMillis());
 
     @JsonBackReference
     @ManyToOne()

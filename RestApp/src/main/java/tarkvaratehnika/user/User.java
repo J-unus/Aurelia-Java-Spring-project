@@ -24,7 +24,7 @@ public class User {
     private String firstName;
     private String lastName;
     private boolean canAddRestaurant = false;
-    private Timestamp created_ts = new Timestamp(System.currentTimeMillis());
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Restaurant> restaurants;

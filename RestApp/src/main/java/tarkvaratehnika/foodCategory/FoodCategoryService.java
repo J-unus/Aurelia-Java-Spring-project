@@ -30,7 +30,7 @@ public class FoodCategoryService {
     }
 
     public List<FoodCategory> getAllFoodCategories() {
-        return foodCategoryRepository.findAll();
+        return foodCategoryRepository.findAllByOrderByCategoryNameAsc();
     }
 
     public FoodCategory getFoodCategoryById(long foodCategoryId) {
@@ -40,7 +40,7 @@ public class FoodCategoryService {
     public FoodCategory updateFoodCategoryById(FoodCategory newFoodCategory, long foodCategoryId) {
         FoodCategory oldFoodCategory = foodCategoryRepository.findOne(foodCategoryId);
         oldFoodCategory.setCategoryName(newFoodCategory.getCategoryName());
-        oldFoodCategory.setModified_ts(new Timestamp(System.currentTimeMillis()));
+        oldFoodCategory.setModifiedTs(new Timestamp(System.currentTimeMillis()));
         foodCategoryRepository.save(oldFoodCategory);
         return oldFoodCategory;
     }

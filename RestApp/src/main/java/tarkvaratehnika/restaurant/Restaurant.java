@@ -24,8 +24,8 @@ public class Restaurant {
     private String phoneNumber;
     private String location;
     private String description;
-    private Timestamp created_ts = new Timestamp(System.currentTimeMillis());
-    private Timestamp modified_ts = new Timestamp(System.currentTimeMillis());
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
+    private Timestamp modifiedTs = new Timestamp(System.currentTimeMillis());
 
     @JsonBackReference
     @ManyToOne()

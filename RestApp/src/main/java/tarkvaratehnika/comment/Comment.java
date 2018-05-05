@@ -20,7 +20,7 @@ public class Comment {
     @GeneratedValue
     private long id;
     private String content;
-    private Timestamp created_ts = new Timestamp(System.currentTimeMillis());
+    private Timestamp createdTs = new Timestamp(System.currentTimeMillis());
 
     @JsonIgnore
     @ManyToOne()

@@ -28,7 +28,7 @@ public class FoodService {
         oldFood.setImage(newFood.getImage());
         oldFood.setPrice(newFood.getPrice());
         oldFood.setTitle(newFood.getTitle());
-        oldFood.setModified_ts(new Timestamp(System.currentTimeMillis()));
+        oldFood.setModifiedTs(new Timestamp(System.currentTimeMillis()));
         foodRepository.save(oldFood);
         return oldFood;
     }

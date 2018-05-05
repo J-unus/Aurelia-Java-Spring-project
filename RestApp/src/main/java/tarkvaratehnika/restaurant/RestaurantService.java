@@ -45,7 +45,7 @@ public class RestaurantService {
         oldRestaurant.setPhoneNumber(newRestaurant.getPhoneNumber());
         oldRestaurant.setLocation(newRestaurant.getLocation());
         oldRestaurant.setDescription(newRestaurant.getDescription());
-        oldRestaurant.setModified_ts(new Timestamp(System.currentTimeMillis()));
+        oldRestaurant.setModifiedTs(new Timestamp(System.currentTimeMillis()));
         restaurantRepository.save(oldRestaurant);
         return oldRestaurant;
     }
