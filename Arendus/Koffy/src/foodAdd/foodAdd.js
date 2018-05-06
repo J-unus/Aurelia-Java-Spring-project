@@ -139,33 +139,33 @@ export class foodAdd {
 
     console.log("Method executed!")
 
-    var toAdd = "<div class='row' repeat.for='food of foodCategory.foods' id='food${food.id}'>" +
-      "<div class='col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
-      "<div class='col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0'>" +
-      this.foodData.price +
-      "<span class='glyphicon glyphicon-euro'></span>" +
-      "</div>" +
-      "<div class='col-sm-8 col-xs-8 text-center'>" +
-      this.foodData.title +
-      "</div>" +
-      "<div class='col-sm-8 col-xs-8 text-center'>" +
-      this.foodData.description +
-      "</div>" +
-      "<div class='col-sm-2 col-xs-2 text-center'>" +
-      "<button type='button' id='btn${foodCategory.id}' value='edit' " +
-      "class='col-sm-12 col-xs-12 btn btn-primary pull-right' " +
-      "click.delegate='editFood(food.id)''>" +
-      "Edit" +
-      "<span class='glyphicon glyphicon-edit'</span>" +
-      "</button>" +
-      "<button type='button' class='btn btn-danger pull-right col-sm-12 col-xs-12' " +
-      "click.delegate='deleteFood(food.id)''>" +
-      "Delete" +
-      "<span class='glyphicon glyphicon-trash'></span>" +
-      "</button>" +
-      "</div>" +
-      "</div>" +
-      "</div>" ;
+    var toAdd = 
+    "<div class='row' repeat.for='food of foodCategory.foods' id='food${food.id}'>" +
+    "<div class='col-md-12 col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
+    "<div class='col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0' id='editFoodPrice${food.id}'>" +
+    this.foodData.price +
+    "<span class='glyphicon glyphicon-euro'></span>" +
+    "</div>" +
+    "<div class='col-md-7 col-sm-7 col-xs-7 text-center' id='editFoodTitle${food.id}'>" +
+    this.foodData.title +
+    "</div>" +
+    "<div class='col-md-3 col-sm-3 col-xs-3 pull-right'>" +
+    "<button type='button' id='foodbtn${food.id}' value='edit' class='col-md-12 col-sm-12 col-xs-12 btn btn-primary'" +
+    "click.delegate='editFood(food.id)'>" +
+    "Edit" +
+    "<span class='glyphicon glyphicon-edit'></span>" +
+    "</button>" +
+    "<button type='button' class='btn btn-danger col-md-12 col-sm-12 col-xs-12' " +
+    "click.delegate='deleteFood(food.id)'>" +
+    "Delete" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</button>" +
+    "</div>" +
+    "<div class='col-md-7 col-sm-7 col-xs-7' id='editFoodDescription${food.id}'>" +
+    this.foodData.description +
+    "</div>" +
+    "</div>" +
+    "</div>";
 
     $(".food" + id).prepend($(toAdd).fadeIn('slow'));
 
