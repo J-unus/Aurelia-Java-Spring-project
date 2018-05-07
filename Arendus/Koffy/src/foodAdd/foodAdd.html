@@ -103,7 +103,7 @@
         <div class="tab-content">
         <div repeat.for="foodCategory of restaurantList.foodCategories" id="foodCategory${foodCategory.id}" class="modal-body tab-pane fade">
           <div class="row">
-            <button class="btn btn-success col-md-12 col-xs-12" data-toggle="collapse" data-target="#addFood${foodCategory.id}">ADD ITEM</button>
+            <button class="btn btn-success col-md-12 col-xs-12" data-toggle="collapse" data-target="#addFood${foodCategory.id}">ADD FOOD</button>
             <br>
             <div id="addFood${foodCategory.id}" class="collapse">
               <form id="foodAddForm" submit.delegate="addFood(foodCategory.id)">
