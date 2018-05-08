@@ -2,7 +2,8 @@ import { HttpClient, json } from 'aurelia-fetch-client'
 
 export class foodAdd {
 
-
+  userData = {}
+  userList = []
   foodData = {}
   foodList = []
   foodCategoryData = {}
@@ -21,6 +22,9 @@ export class foodAdd {
     client.fetch('http://localhost:8080/restaurants/1')
       .then(response => response.json())
       .then(restaurants => this.restaurantList = restaurants);
+    client.fetch('http://localhost:8080/users/2')
+      .then(response => response.json())
+      .then(users => this.userList = users);
   }
 
   addCategory() {
