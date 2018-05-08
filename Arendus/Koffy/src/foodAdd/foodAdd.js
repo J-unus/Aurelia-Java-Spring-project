@@ -43,7 +43,7 @@ export class foodAdd {
     console.log("Category Add executed!")
 
     function deleteCategory(data) {
-      var id = data[data.length - 1].id
+      var id = data[data.length - 1].id;
       var insertCategory = $($.parseHTML(data[data.length - 1].categoryName)).text();
       console.log("insertCategory =" + insertCategory)
       toAdd = "<div class='row' id='row" + id + "'>" +
@@ -125,49 +125,76 @@ export class foodAdd {
 
   }
 
-  addFood(id) {
+  addFood(categoryId) {
     console.log("addFood")
     let client = new HttpClient();
-    client.fetch('http://localhost:8080/foodCategories/addFood/' + id, {
+    client.fetch('http://localhost:8080/foodCategories/addFood/' + categoryId, {
         'method': "POST",
         'body': json(this.foodData)
       })
       .then(response => response.json())
       .then(data => {
-        console.log("Server saatis " + data.name);
+        client.fetch('http://localhost:8080/foodCategories/' + categoryId)
+          .then(response => response.json())
+          .then(data2 => {
+            console.log("category count= " + data2.foods.length)
+            deleteFood(data2.foods);
+          });
       });
 
     console.log("Method executed!")
 
-    var toAdd = 
-    "<div class='row' repeat.for='food of foodCategory.foods' id='food${food.id}'>" +
-    "<div class='col-md-12 col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
-    "<div class='col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0' id='editFoodPrice${food.id}'>" +
-    this.foodData.price +
-    "<span class='glyphicon glyphicon-euro'></span>" +
-    "</div>" +
-    "<div class='col-md-7 col-sm-7 col-xs-7 text-center' id='editFoodTitle${food.id}'>" +
-    this.foodData.title +
-    "</div>" +
-    "<div class='col-md-3 col-sm-3 col-xs-3 pull-right'>" +
-    "<button type='button' id='foodbtn${food.id}' value='edit' class='col-md-12 col-sm-12 col-xs-12 btn btn-primary'" +
-    "click.delegate='editFood(food.id)'>" +
-    "Edit" +
-    "<span class='glyphicon glyphicon-edit'></span>" +
-    "</button>" +
-    "<button type='button' class='btn btn-danger col-md-12 col-sm-12 col-xs-12' " +
-    "click.delegate='deleteFood(food.id)'>" +
-    "Delete" +
-    "<span class='glyphicon glyphicon-trash'></span>" +
-    "</button>" +
-    "</div>" +
-    "<div class='col-md-7 col-sm-7 col-xs-7' id='editFoodDescription${food.id}'>" +
-    this.foodData.description +
-    "</div>" +
-    "</div>" +
-    "</div>";
+    function deleteFood(data) {
+      var id = data[data.length - 1].id
+      var price = data[data.length - 1].price;
+      var title = $($.parseHTML(data[data.length - 1].title)).text();
+      var description = $($.parseHTML(data[data.length - 1].description)).text();
+      var toAdd =
+        "<div class='row' repeat.for='food of foodCategory.foods' id='food" + id + "'>" +
+        "<div class='col-md-12 col-sm-12 col-xs-12 well well-sm text-center text-info item'>" +
+        "<div class='col-sm-2 col-xs-2 well well-sm text-center text-danger rounded-0' id='editFoodPrice${food.id}'>" +
+        price +
+        "<span class='glyphicon glyphicon-euro'></span>" +
+        "</div>" +
+        "<div class='col-md-7 col-sm-7 col-xs-7 text-center' id='editFoodTitle${food.id}'>" +
+        title +
+        "</div>" +
+        "<div class='col-md-3 col-sm-3 col-xs-3 pull-right'>" +
+        "<button type='button' id='foodEditBtn" + id + "' value='edit' class='col-md-12 col-sm-12 col-xs-12 btn btn-primary'" +
+        "click.delegate='editFood(food.id)'>" +
+        "Edit" +
+        "<span class='glyphicon glyphicon-edit'></span>" +
+        "</button>" +
+        "<button type='button' id='foodDeleteBtn" + id + "' class='btn btn-danger col-md-12 col-sm-12 col-xs-12' " +
+        "click.delegate='deleteFood(food.id)'>" +
+        "Delete" +
+        "<span class='glyphicon glyphicon-trash'></span>" +
+        "</button>" +
+        "</div>" +
+        "<div class='col-md-7 col-sm-7 col-xs-7' id='editFoodDescription"+id+"'>" +
+        description +
+        "</div>" +
+        "</div>" +
+        "</div>";
 
-    $(".food" + id).prepend($(toAdd).fadeIn('slow'));
+      $(".food" + categoryId).prepend($(toAdd).fadeIn('slow'));
+
+      $("#foodDeleteBtn" + id).bind("click", function() {
+        let client = new HttpClient();
+
+        client.fetch('http://localhost:8080/foods/' + id)
+          .then(response => response.json())
+          .then(food=> this.food = food);
+
+        client.fetch('http://localhost:8080/foods/' + id, {
+          'method': "DELETE",
+          'body': json(this.food)
+        });
+        $("#food" + id).slideUp(100, function() { $(this).remove(); });
+        console.log("Category Delete executed!")
+      });
+
+    }
 
   }
 
@@ -268,7 +295,7 @@ export class foodAdd {
       var foodTitle = $("#foodTitle" + id).val();
       var foodDescription = $("#foodDescription" + id).val();
       var foodPrice = $("#foodPrice" + id).val();
-      let foodSave = {description: foodDescription,price: foodPrice,title: foodTitle };
+      let foodSave = { description: foodDescription, price: foodPrice, title: foodTitle };
       client.fetch('http://localhost:8080/foods/' + id, {
         'method': "PUT",
         'body': json(foodSave)
@@ -278,7 +305,7 @@ export class foodAdd {
       $("#foodbtn" + id).attr("value", "edit");
       $("#editFoodTitle" + id).html(foodTitle);
       $("#editFoodDescription" + id).html(foodDescription);
-      $("#editFoodPrice" + id).html(foodPrice+"<span class='glyphicon glyphicon-euro'></span>");
+      $("#editFoodPrice" + id).html(foodPrice + "<span class='glyphicon glyphicon-euro'></span>");
     }
   }
 
