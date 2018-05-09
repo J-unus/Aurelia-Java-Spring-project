@@ -1,79 +1,20 @@
 /*Main style*/
 
 body {
-  padding-top: 60px;
+  padding-top: 90px;
   background: #3a6186;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #007080, #006080);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #007080, #006080);
-  /*background-image: url("http://dijkstra.cs.ttu.ee/~Marti.Molder/Tarkvaratehnika/Test/css/resources/bg.jpg");*/
   font-family: 'Iceland', cursive;
 }
-
-
-
-
-
 
 /* General sizing */
 
 ul.dropdown-lr {
   width: 300px;
 }
-
-
-label {
-  letter-spacing: 0px;
-}
-
-.login-background,
-.register-background {
-  color: #fff;
-  background-color: #009edf !important;
-}
-
-
-
-
-
-
-
-
-/*NavBar*/
-
-.navbar {
-  margin-bottom: 0;
-  background-color: #008080;
-  z-index: 9;
-  border: 0;
-  font-size: 1.5em !important;
-  line-height: 1.42857143 !important;
-  letter-spacing: 3px;
-  border-radius: 0;
-}
-
-.navbar li a,
-.navbar .navbar-brand {
-  font-size: 1em;
-  color: #fff !important;
-}
-
-.navbar-nav li a:hover,
-.navbar-nav li.active a {
-  color: #f4511e !important;
-  background-color: #fff !important;
-}
-
-.navbar-default .navbar-toggle {
-  border-color: transparent;
-  color: #fff !important;
-}
-
-
-
-
-
 
 /* mobile fix */
 
@@ -99,16 +40,6 @@ label {
   background-color: #009edf !important;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*NavBar*/
 
 .navbar {
@@ -140,16 +71,6 @@ label {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /*Search*/
 
 .col-centered {
@@ -160,16 +81,6 @@ label {
 h4 {
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /*Smaller screen style*/
@@ -200,21 +111,22 @@ h3 {
 
 .well:hover {
   opacity: 1;
-  color: #f4511e !important;
-  background-color: #fff !important;
+  color: #f4511e;
+  background-color: #fff;
 }
 
-.well-container .well-title:hover .well {
+
+.well-container .well-title-hover:hover .wellHover {
   -webkit-transition: background-color ease-out 0.3s;
   -moz-transition: background-color ease-out 0.3s;
   -o-transition: background-color ease-out 0.3s;
   transition: background-color ease-out 0.3s;
   opacity: 1;
   color: #343a40 !important;
-  background-color: #fff !important;
+  background-color: #fff !important;*/
 }
 
-.well-container .well-title:hover .well-success {
+.well-container .well-success:hover {
   -webkit-transition: background-color ease-out 0.3s;
   -moz-transition: background-color ease-out 0.3s;
   -o-transition: background-color ease-out 0.3s;
@@ -224,7 +136,17 @@ h3 {
   background-color: #fff !important;
 }
 
-.well-container .well-title:hover .well-danger {
+.well-container .well-success:active {
+  -webkit-transition: background-color ease-out 0.5s;
+  -moz-transition: background-color ease-out 0.5s;
+  -o-transition: background-color ease-out 0.5s;
+  transition: background-color ease-out 0.5s;
+  opacity: 1;
+  color: #28a745 !important;
+  background-color: #00FF00 !important;
+}
+
+.well-container .well-danger:hover {
   -webkit-transition: background-color ease-out 0.3s;
   -moz-transition: background-color ease-out 0.3s;
   -o-transition: background-color ease-out 0.3s;
@@ -232,6 +154,16 @@ h3 {
   opacity: 1;
   color: #bd2130 !important;
   background-color: #fff !important;
+}
+
+.well-container .well-danger:active {
+  -webkit-transition: background-color ease-out 0.5s;
+  -moz-transition: background-color ease-out 0.5s;
+  -o-transition: background-color ease-out 0.5s;
+  transition: background-color ease-out 0.5s;
+  opacity: 1;
+  color: #bd2130 !important;
+  background-color: #DC143C !important;
 }
 
 .well {
@@ -309,20 +241,31 @@ a:hover {
   color: #343a40 !important;
   background-color: #fff !important;
 }
-
-#tab-content {
-  background-color: red;
-  height: 50vh;
+.text-like:hover{
+  background-color: #fff !important;
+  color: #28a745 !important;
 }
-
-.glyphicon-move-element {
-  margin-left: 5px;
+.text-dislike:hover{
+  background-color: #fff !important;
+  color: #bd2130 !important;
 }
-
-.center {
-  margin: auto;
+.text-dislike:active{
+  -webkit-transition: background-color ease-out 0.5s;
+  -moz-transition: background-color ease-out 0.5s;
+  -o-transition: background-color ease-out 0.5s;
+  transition: background-color ease-out 0.5s;
+  color: #bd2130 !important;
+  background-color: #DC143C !important;
 }
-
-.collapsing {
-  transition: height 5s;
+.text-like:active{
+  -webkit-transition: background-color ease-out 0.5s;
+  -moz-transition: background-color ease-out 0.5s;
+  -o-transition: background-color ease-out 0.5s;
+  transition: background-color ease-out 0.5s;
+  color: #28a745 !important;
+  background-color: #00FF00 !important;
+}
+.text-like, .text-dislike,.text-danger{
+   border-color: #00FFFF !important;
+  border-width: 0.5px;
 }
