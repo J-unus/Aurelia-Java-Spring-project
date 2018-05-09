@@ -19,8 +19,10 @@ public class Restaurant {
     @GeneratedValue
     private long id;
     private String name;
-    private String weekdays;
-    private String weekend;
+    private String weekdaysOpen;
+    private String weekdaysClosed;
+    private String weekendOpen;
+    private String weekendClosed;
     private String phoneNumber;
     private String location;
     private String description;

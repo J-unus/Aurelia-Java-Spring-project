@@ -40,8 +40,10 @@ public class RestaurantService {
     public Restaurant updateRestaurantById(Restaurant newRestaurant, long restaurantId) {
         Restaurant oldRestaurant = restaurantRepository.findOne(restaurantId);
         oldRestaurant.setName(newRestaurant.getName());
-        oldRestaurant.setWeekdays(newRestaurant.getWeekdays());
-        oldRestaurant.setWeekend(newRestaurant.getWeekend());
+        oldRestaurant.setWeekdaysOpen(newRestaurant.getWeekdaysOpen());
+        oldRestaurant.setWeekdaysClosed(newRestaurant.getWeekdaysClosed());
+        oldRestaurant.setWeekendOpen(newRestaurant.getWeekendOpen());
+        oldRestaurant.setWeekendClosed(newRestaurant.getWeekendClosed());
         oldRestaurant.setPhoneNumber(newRestaurant.getPhoneNumber());
         oldRestaurant.setLocation(newRestaurant.getLocation());
         oldRestaurant.setDescription(newRestaurant.getDescription());
