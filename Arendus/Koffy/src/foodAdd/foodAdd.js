@@ -26,6 +26,9 @@ export class foodAdd {
       .then(response => response.json())
       .then(users => this.userList = users);
   }
+  created(){
+    console.log("tere")
+  }
 
   addCategory() {
     var toAdd = ""
@@ -276,6 +279,20 @@ export class foodAdd {
     $("#food" + id).slideUp(100, function() { $(this).remove(); });
 
     console.log("Method executed!")
+
+  }
+
+  deleteRestaurant(id) {
+    let client = new HttpClient();
+
+    client.fetch('http://localhost:8080/restaurants/' + id)
+      .then(response => response.json())
+      .then(foodCategory => this.foodCategory = foodCategory);
+
+    client.fetch('http://localhost:8080/restaurants/' + id, {
+      'method': "DELETE"
+    });
+    $("#restaurant" + id).slideUp(100, function() { $(this).remove(); });
 
   }
 

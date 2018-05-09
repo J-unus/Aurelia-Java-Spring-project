@@ -31,13 +31,6 @@
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="row col-md-6 col-md-offset-3 col-xs-12">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#menuModal">Edit categories</button>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#foodModal">Edit menu</button>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#restaurantModal">Edit restaurant</button>
-    </div>
-  </div>
   <!-- Modal -->
   <div id="menuModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -176,7 +169,7 @@
   </div>
 
    <div class="container well-container">
-        <div class="row col-sm-12 text-center well-title" repeat.for="restaurant of userList.restaurants">
+        <div class="row col-sm-12 text-center well-title" repeat.for="restaurant of userList.restaurants" id="restaurant${restaurant.id}">
           <div class="col-sm-4 col-xs-6 well well-sm rounded-0">
             <span class="glyphicon glyphicon-cutlery"></span>
             <h3><strong>${restaurant.name}</strong></h3>
@@ -238,19 +231,19 @@
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantNumber">Phonenumber:</label>
                             <div class="col-md-8">
-                              <input type="number" class="form-control" id="restaurantNumber" name="restaurantNumber" value="${restaurant.name}">
+                              <input type="number" class="form-control" id="restaurantNumber" name="restaurantNumber" value="${restaurant.phoneNumber}">
                             </div>
                           </div>
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantLocation">Location:</label>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="restaurantLocation" name="restaurantLocation" value="${restaurant.name}">
+                              <input type="text" class="form-control" id="restaurantLocation" name="restaurantLocation" value="${restaurant.location}">
                             </div>
                           </div>
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantDescription">Description:</label>
                             <div class="col-md-8">
-                              <textarea type="text" class="form-control" id="restaurantDescription" name="restaurantDescription" value="${restaurant.name}"></textarea>
+                              <textarea type="text" class="form-control" id="restaurantDescription" name="restaurantDescription" value="${restaurant.description}"></textarea>
                             </div>
                           </div>
                           <div class="row">
@@ -261,7 +254,7 @@
                             </button>
                           </div>
                           <div class="pull-right col-md-6">
-                            <button type="submit" class="btn btn-danger submit col-md-12">
+                            <button type="button" class="btn btn-danger col-md-12" data-dismiss="modal" click.delegate="deleteRestaurant(restaurant.id)">
                               <span class="glyphicon glyphicon-trash"></span>
                               <h3>DELETE</h3>
                             </button>
@@ -280,5 +273,6 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">console.log("tere1")</script>
 
 </template>
