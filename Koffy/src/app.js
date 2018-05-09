@@ -10,7 +10,8 @@ export class App {
       { route: 'contact', name: 'contact', moduleId: 'contact/index', nav: true, title: 'Contact' },
       { route: 'about', name: 'about', moduleId: 'about/about', nav: true, title: 'About' },
       { route: 'restaurantAdd', name: 'restaurantAdd', moduleId: 'restaurantAdd/restaurantAdd', nav: true, title: 'restaurantAdd' },
-      { route: 'foodAdd', name: 'foodAdd', moduleId: 'foodAdd/foodAdd', nav: true, title: 'foodAdd' }
+      { route: 'foodAdd', name: 'foodAdd', moduleId: 'foodAdd/foodAdd', nav: true, title: 'foodAdd' },
+      { route: 'userView', name: 'userView', moduleId: 'userView/userView', nav: true, title: 'userView' }
     ]);
   }
 }
