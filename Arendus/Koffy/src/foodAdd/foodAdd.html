@@ -32,7 +32,7 @@
     </div>
   </nav>
   <!-- Modal -->
-  <div id="menuModal" class="modal fade" role="dialog">
+  <div id="menuModal${restaurant.id}" class="modal fade" role="dialog" repeat.for="restaurant of userList.restaurants">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -42,7 +42,7 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <form id="categoryAddForm" submit.delegate="addCategory()">
+            <form id="categoryAddForm" submit.delegate="addCategory(restaurant.id)">
               <div class="col-md-12 col-xs-12 form-horizontal">
                 <div class="form-group">
                   <label class="control-label col-sm-3" for="categoryName">Category name:</label>
@@ -55,8 +55,8 @@
               </div>
             </form>
           </div>
-          <div class="categories">
-              <div class="row" id="${foodCategory.id}" repeat.for="foodCategory of restaurantList.foodCategories">
+          <div class="categories${restaurant.id}">
+              <div class="row" id="${foodCategory.id}" repeat.for="foodCategory of restaurant.foodCategories">
                 <div class="col-sm-12 col-xs-12 well well-sm text-center text-info item">
                   <div class="col-sm-12 col-xs-12 text-center">
                     <span class="col-md-8 col-xs-8" id="editCategory${foodCategory.id}">
@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  <div id="foodModal" class="modal fade" role="dialog">
+  <div id="foodModal${restaurant.id}" class="modal fade" role="dialog" repeat.for="restaurant of userList.restaurants">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -91,11 +91,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Menüü toidud</h4>
           <ul class="nav nav-tabs">
-            <li repeat.for="foodCategory of restaurantList.foodCategories"><a data-toggle="tab" href="#foodCategory${foodCategory.id}">${foodCategory.categoryName}</a></li>
+            <li repeat.for="foodCategory of restaurant.foodCategories"><a data-toggle="tab" href="#foodCategory${foodCategory.id}">${foodCategory.categoryName}</a></li>
           </ul>
         </div>
         <div class="tab-content">
-        <div repeat.for="foodCategory of restaurantList.foodCategories" id="foodCategory${foodCategory.id}" class="modal-body tab-pane fade">
+        <div repeat.for="foodCategory of restaurant.foodCategories" id="foodCategory${foodCategory.id}" class="modal-body tab-pane fade">
           <div class="row">
             <button class="btn btn-success col-md-12 col-xs-12" data-toggle="collapse" data-target="#addFood${foodCategory.id}">ADD FOOD</button>
             <br>
@@ -172,14 +172,14 @@
         <div class="row col-sm-12 text-center well-title" repeat.for="restaurant of userList.restaurants" id="restaurant${restaurant.id}">
           <div class="col-sm-4 col-xs-6 well well-sm rounded-0">
             <span class="glyphicon glyphicon-cutlery"></span>
-            <h3><strong>${restaurant.name}</strong></h3>
+            <h3><strong id="restaurantNameChange${restaurant.id}">${restaurant.name}</strong></h3>
           </div>
           <div class="col-md-5 col-xs-6 well well-sm rounded-0">
             <div class="col-md-2 col-xs-6 well well-sm rounded-0">
               <h3><strong>EDIT</strong></h3>
             </div>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#menuModal">Categories</button>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#foodModal">Menu</button>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#menuModal${restaurant.id}">Categories</button>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#foodModal${restaurant.id}">Menu</button>
               <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#restaurantModal${restaurant.id}">General</button>
           </div>
         </div>
@@ -199,51 +199,51 @@
           <div class="restaurant">
               <div class="row">
                   <div class="col-md-12 col-xs-12">
-                    <form id="restaurantEditForm" submit.delegate="editRestaurant()">
+                    <form id="restaurantEditForm" submit.delegate="editRestaurant(restaurant.id)">
                       <div class="col-md-12 col-xs-12 form-horizontal">
                         <div class="form-group">
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantName">Restaurant name:</label>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="restaurantName" name="restaurantName" value="${restaurant.name}">
+                              <input type="text" class="form-control" id="restaurantName${restaurant.id}" name="restaurantName" value="${restaurant.name}">
                             </div>
                           </div>
                           <div class="row well well-sm">
-                            <label class="control-label col-md-4" for="restaurantWDTimeOpen">Weekdays:From</label>
+                            <label class="control-label col-md-4" for="restaurantWDTimeOpen">Weekdays:<kbd>From</kbd></label>
                             <div class="col-md-3">
-                              <input type="time" class="form-control" id="restaurantWDTimeOpen" name="restaurantWDTimeOpen" value="${restaurant.name}">
+                              <input type="time" class="form-control" id="restaurantWDTimeOpen${restaurant.id}" name="restaurantWDTimeOpen" value="${restaurant.weekdaysOpen}">
                             </div>
-                            <label class="control-label col-md-1" for="restaurantWDTimeClose">To</label>
+                            <label class="control-label col-md-1" for="restaurantWDTimeClose"><kbd>To</kbd></label>
                             <div class="col-md-3">
-                              <input type="time" class="form-control" id="restaurantWDTimeClose" name="restaurantWDTimeClose" value="${restaurant.name}">
+                              <input type="time" class="form-control" id="restaurantWDTimeClose${restaurant.id}" name="restaurantWDTimeClose" value="${restaurant.weekdaysClosed}">
                             </div>
                           </div>
                           <div class="row well well-sm">
-                            <label class="control-label col-md-4" for="restaurantWDTimeOpen">Weekend:From</label>
+                            <label class="control-label col-md-4" for="restaurantWKNDTimeOpen">Weekend:<kbd>From</kbd></label>
                             <div class="col-md-3">
-                              <input type="time" class="form-control" id="restaurantWDTimeOpen" name="restaurantWDTimeOpen" value="${restaurant.name}">
+                              <input type="time" class="form-control" id="restaurantWKNDTimeOpen${restaurant.id}" name="restaurantWDTimeOpen" value="${restaurant.weekendOpen}">
                             </div>
-                            <label class="control-label col-md-1" for="restaurantWDTimeClose">To</label>
+                            <label class="control-label col-md-1" for="restaurantWKNDTimeClose"><kbd>To</kbd></label>
                             <div class="col-md-3">
-                              <input type="time" class="form-control" id="restaurantWDTimeClose" name="restaurantWDTimeClose" value="${restaurant.name}">
+                              <input type="time" class="form-control" id="restaurantWKNDTimeClose${restaurant.id}" name="restaurantWDTimeClose" value="${restaurant.weekendClosed}">
                             </div>
                           </div>
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantNumber">Phonenumber:</label>
                             <div class="col-md-8">
-                              <input type="number" class="form-control" id="restaurantNumber" name="restaurantNumber" value="${restaurant.phoneNumber}">
+                              <input type="number" class="form-control" id="restaurantNumber${restaurant.id}" name="restaurantNumber" value="${restaurant.phoneNumber}">
                             </div>
                           </div>
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantLocation">Location:</label>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="restaurantLocation" name="restaurantLocation" value="${restaurant.location}">
+                              <input type="text" class="form-control" id="restaurantLocation${restaurant.id}" name="restaurantLocation" value="${restaurant.location}">
                             </div>
                           </div>
                           <div class="row well well-sm">
                             <label class="control-label col-md-4" for="restaurantDescription">Description:</label>
                             <div class="col-md-8">
-                              <textarea type="text" class="form-control" id="restaurantDescription" name="restaurantDescription" value="${restaurant.description}"></textarea>
+                              <textarea type="text" class="form-control" id="restaurantDescription${restaurant.id}" name="restaurantDescription" value="${restaurant.description}"></textarea>
                             </div>
                           </div>
                           <div class="row">

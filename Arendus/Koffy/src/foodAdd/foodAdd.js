@@ -30,16 +30,16 @@ export class foodAdd {
     console.log("tere")
   }
 
-  addCategory() {
+  addCategory(restaurantId) {
     var toAdd = ""
     let client = new HttpClient();
-    client.fetch('http://localhost:8080/restaurants/addFoodCategory/1', {
+    client.fetch('http://localhost:8080/restaurants/addFoodCategory/'+restaurantId, {
         'method': "POST",
         'body': json(this.foodCategoryData)
       })
       .then(response => response.json())
       .then(data => {
-        client.fetch('http://localhost:8080/restaurants/1')
+        client.fetch('http://localhost:8080/restaurants/'+restaurantId)
           .then(response => response.json())
           .then(data2 => {
             console.log("category count= " + data2.foodCategories.length)
@@ -73,7 +73,7 @@ export class foodAdd {
       "</div>" +
       "</div>";
 
-      $(".categories").prepend(toAdd);
+      $(".categories"+restaurantId).prepend(toAdd);
 
       $("#categoryDeleteBtn" + id).bind("click", function() {
         let client = new HttpClient();
@@ -370,6 +370,24 @@ export class foodAdd {
       $("#editFoodDescription" + id).html(foodDescription);
       $("#editFoodPrice" + id).html(foodPrice + "<span class='glyphicon glyphicon-euro'></span>");
     }
+  }
+
+  editRestaurant(id){
+    let client = new HttpClient();
+    var restaurantName  = $("#restaurantName" + id).val();
+    var restaurantWeekdaysOpen  = $("#restaurantWDTimeOpen" + id).val();
+    var restaurantWeekdaysClosed  = $("#restaurantWDTimeClose" + id).val();
+    var restaurantWeekendOpen  = $("#restaurantWKNDTimeOpen" + id).val();
+    var restaurantWeekendClosed  = $("#restaurantWKNDTimeClose" + id).val();
+    var restaurantPhoneNumber  = $("#restaurantNumber" + id).val();
+    var restaurantLocation  = $("#restaurantLocation" + id).val();
+    var restaurantDescription  = $("#restaurantDescription" + id).val();
+    let restaurantSave = { name: restaurantName, weekdaysOpen: restaurantWeekdaysOpen, weekdaysClosed:restaurantWeekdaysClosed, weekendOpen: restaurantWeekendOpen,weekendClosed:restaurantWeekendClosed, phoneNumber:restaurantPhoneNumber, location:restaurantLocation, description:restaurantDescription };
+    client.fetch('http://localhost:8080/restaurants/' + id, {
+        'method': "PUT",
+        'body': json(restaurantSave)
+      });
+    $("#restaurantNameChange" + id).html(restaurantName);
   }
 
 

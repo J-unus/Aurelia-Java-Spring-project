@@ -15,6 +15,7 @@ body {
 
 
 
+
 /* General sizing */
 
 ul.dropdown-lr {
@@ -31,6 +32,7 @@ label {
   color: #fff;
   background-color: #009edf !important;
 }
+
 
 
 
@@ -67,6 +69,7 @@ label {
   border-color: transparent;
   color: #fff !important;
 }
+
 
 
 
@@ -105,6 +108,7 @@ label {
 
 
 
+
 /*NavBar*/
 
 .navbar {
@@ -145,6 +149,7 @@ label {
 
 
 
+
 /*Search*/
 
 .col-centered {
@@ -155,6 +160,7 @@ label {
 h4 {
   font-weight: bold;
 }
+
 
 
 
@@ -318,5 +324,5 @@ a:hover {
 }
 
 .collapsing {
-    transition: height 5s;
+  transition: height 5s;
 }
